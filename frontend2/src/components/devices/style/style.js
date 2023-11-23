@@ -21,5 +21,10 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.error.light,
         color: "white",
         fontSize: "large",
-    }
+    },
+    customChip: {
+        backgroundColor: `${theme.palette.primary.light} !important`,
+        '&:hover': {
+            backgroundColor: `${theme.palette.primary.main} !important`,
+        }},
 }));

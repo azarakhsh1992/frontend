@@ -22,7 +22,7 @@ const TempDev = () => {
                                     <Typography className={clsx(classes.rootfda,classes.tempout)}>auBen</Typography>
                             </Stack>
                             <Stack direction="column" spacing={1}>
-                                <Chip label="item 2-1" variant="outlined" />
+                                <Chip label="item 2-1" variant="outlined" className={clsx(classes.customChip)}/>
                                 <Chip label="item 2-2" variant="outlined" />
                             </Stack>
                         </Stack>
