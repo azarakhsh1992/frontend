@@ -1,0 +1,15 @@
+npm install @mui/material @emotion/react @emotion/styled
+npm install @fontsource/roboto
+npm install @mui/icons-material
+......................
+mui x
+......................
+npm install @mui/x-data-grid
+
+npm install @mui/x-date-pickers
+// Install date library (if not already installed)
+npm install dayjs
+
+npm install @mui/x-charts
+
+npm install @mui/x-tree-view

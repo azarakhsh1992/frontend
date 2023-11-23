@@ -1,0 +1,67 @@
+{
+  "name": "fedge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "@mui/styled-engine-sc": "^5.14.12",
+    "@mui/styles": "^5.14.18",
+    "@mui/x-date-pickers": "^6.18.1",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "dayjs": "^1.11.10",
+    "html5-qrcode": "^2.3.8",
+    "instascan": "^1.0.0",
+    "jsqr": "^1.4.0",
+    "notistack": "^3.0.1",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-barcode-reader": "^0.0.2",
+    "react-code-scanner": "^1.0.1",
+    "react-dom": "^18.2.0",
+    "react-qr-reader": "^3.0.0-beta-1",
+    "react-qr-scanner": "^1.0.0-alpha.11",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "^5.0.1",
+    "react-webcam-barcode-scanner": "^0.0.2-rc2",
+    "react-webcam-qr-scanner": "^1.0.8",
+    "styled-components": "^6.1.1",
+    "web-vitals": "^3.5.0",
+    "webrtc-adapter": "^8.2.3"
+  },
+  "peerDependencies": {
+  "react": "^17.0.0 || ^18.0.0",
+  "react-dom": "^17.0.0 || ^18.0.0"
+	},
+  "scripts": {
+    "start": "set HTTPS=true&&set SSL_CRT_FILE=cert.pem&&set SSL_KEY_FILE=key.pem&&react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+  }
+}
