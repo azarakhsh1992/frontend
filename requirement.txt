@@ -13,3 +13,8 @@ npm install dayjs
 npm install @mui/x-charts
 
 npm install @mui/x-tree-view
+
+.....................................
+version control
+npm :  10.2.4
+node : v20.10.0

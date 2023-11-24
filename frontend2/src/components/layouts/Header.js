@@ -34,7 +34,7 @@ const Header = () => {
     return (
         <AppBar sx={{height:heighApp,bgcolor:'#333133', boxShadow:'0', position:'sticky'}}>
             <Grid position={'absolute'} justifyContent={'center'} width={'100%'} height={'100px'}>
-                <Typography variant="h4" align="center" marginTop={'20px'}>
+                <Typography variant="h4" align="center" marginTop={'20px'} color={'white'}>
                     VOLKSWAGEN
                 </Typography>
             </Grid>

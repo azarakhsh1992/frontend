@@ -1,30 +1,93 @@
 import { makeStyles } from '@mui/styles';
 
-export const useStyles = makeStyles((theme) => ({
-    rootfda: {
-        height: 'auto',
-        width: '10em',
-        display: 'flex',         // Use flexbox for alignment
-        alignItems: 'center',    // Align items vertically in the center
-        justifyContent: 'center',// Align items horizontally in the center
-        borderRadius: '1em',
-        backgroundColor: theme.palette.primary.light,
-        color: 'white',
-        fontSize: 'large',
+export const useStylesTemp = makeStyles((theme) => ({
+    root: {
+        height: 'auto !important',
+        width: '10em  !important',
+        display: 'flex  !important',         // Use flexbox for alignment
+        alignItems: 'center  !important',    // Align items vertically in the center
+        justifyContent: 'center  !important',// Align items horizontally in the center
+        borderRadius: '5em  !important',
+        backgroundColor: `${theme.palette.tertiary.blue} !important`,
+        color: 'white  !important',
+        fontSize: 'large  !important',
     },
     tempin: {
-        backgroundColor: theme.palette.warning.light,
-        color: "white",
+        backgroundColor: `${theme.palette.tertiary.bluelight} !important`,
+        display:'flex',
+        width:'10em',
+        color:'white !important',
         fontSize: "large",
     },
     tempout: {
-        backgroundColor: theme.palette.error.light,
-        color: "white",
+        backgroundColor: `${theme.palette.tertiary.yellow} !important`,
+        display:'flex',
+        width:'10em',
+        color:'white !important',
         fontSize: "large",
     },
-    customChip: {
-        backgroundColor: `${theme.palette.primary.light} !important`,
-        '&:hover': {
-            backgroundColor: `${theme.palette.primary.main} !important`,
-        }},
+}));
+
+export const useStylesDoor = makeStyles((theme) => ({
+    root: {
+        height: 'auto !important',
+        width: '10em  !important',
+        display: 'flex  !important',         // Use flexbox for alignment
+        alignItems: 'center  !important',    // Align items vertically in the center
+        justifyContent: 'center  !important',// Align items horizontally in the center
+        borderRadius: '5em  !important',
+        backgroundColor: `${theme.palette.tertiary.blue} !important`,
+        color: 'white  !important',
+        fontSize: 'large  !important',
+    },
+    door: {
+        backgroundColor: `${theme.palette.tertiary.red2} !important`,
+        display:'flex',
+        width:'10em',
+        color:'white !important',
+        fontSize: "large",
+    },
+}));
+
+export const useStylesEnergy = makeStyles((theme) => ({
+    root1: {
+        height: '3em !important',
+        width: '10em  !important',
+        display: 'flex  !important',         // Use flexbox for alignment
+        alignItems: 'center  !important',    // Align items vertically in the center
+        justifyContent: 'center  !important',// Align items horizontally in the center
+        borderRadius: '5em  !important',
+        backgroundColor: `${theme.palette.tertiary.red3} !important`,
+        color: 'white  !important',
+        fontSize: 'large  !important',
+    },
+    root2: {
+        height: '3em !important',
+        width: '10em  !important',
+        display: 'flex  !important',         // Use flexbox for alignment
+        alignItems: 'center  !important',    // Align items vertically in the center
+        justifyContent: 'center  !important',// Align items horizontally in the center
+        borderRadius: '5em  !important',
+        backgroundColor: `${theme.palette.tertiary.green2} !important`,
+        color: 'white  !important',
+        fontSize: 'large  !important',
+    },
+    energy1: {
+        backgroundColor: `${theme.palette.tertiary.red3} !important`,
+        display:'flex',
+        height: '4em !important',
+        width: '10em  !important',
+        borderRadius: '5em  !important',
+        color:'white !important',
+        fontSize: "large",
+    },
+    energy2: {
+        backgroundColor: `${theme.palette.tertiary.green2} !important`,
+        display:'flex',
+        height: '4em !important',
+        width: '10em  !important',
+        borderRadius: '5em  !important',
+        color:'white !important',
+        fontSize: "large",
+    },
 }));
