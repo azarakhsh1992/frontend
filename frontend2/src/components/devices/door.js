@@ -13,7 +13,7 @@ const DoorDev = ({text}) => {
         <>
             <Container>
                 <Stack direction="column" spacing={1}>
-                    <Stack direction="row" spacing={22}>
+                    <Stack direction="row" spacing={5}>
                         <Chip label={text} variant="outlined" className={clsx(classes.root)}/>
                         <Chip label="zu" variant="outlined" className={clsx(classes.door)}/>
                     </Stack>

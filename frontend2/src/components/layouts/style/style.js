@@ -9,7 +9,7 @@ export const useStyleFigma = makeStyles((theme) => ({
     root: {
         backgroundColor:`#eee !important`,
         [theme.breakpoints.down('sm')]: {
-            backgroundColor:`#555 !important`
+            margin:'10px'
         },
         borderRadius:'50px',
         padding:'50px 50px',

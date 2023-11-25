@@ -13,11 +13,11 @@ const EnergyDev = ({text}) => {
         <>
             <Container>
                 <Stack direction="column" spacing={1}>
-                    <Stack direction="row" spacing={22}>
+                    <Stack direction="row" spacing={10}>
                         <Chip label="Strom" variant="outlined" className={clsx(classes.root1)}/>
                         <Chip label="XY KW" variant="outlined" className={clsx(classes.energy1)}/>
                     </Stack>
-                    <Stack direction="row" spacing={22}>
+                    <Stack direction="row" spacing={10}>
                         <Chip label="Energie" variant="outlined" className={clsx(classes.root2)}/>
                         <Chip label="XY KWh" variant="outlined" className={clsx(classes.energy2)}/>
                     </Stack>
