@@ -34,6 +34,7 @@ export const theme = createTheme({
             red2:'#C60202',
             red3:'#F06161',
             green2:'#7AA71A',
+            blue2:'#2B2E4A',
         },
     },
     status: {

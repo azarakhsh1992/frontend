@@ -1,0 +1,44 @@
+.row {
+  max-width: $grid-width;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+
+  [class^="col-"] {
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+  .col-1-of-2 {
+    height: auto;
+    width: auto;
+  }
+  .col-1-of-3 {
+    height: auto;
+    width: auto;
+  }
+}
+
+.column {
+  max-width: $grid-width;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+
+  [class^="row-"] {
+    &:not(:last-child) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+  .row-1-of-2 {
+    height: 5rem;
+    width: 15rem;
+  }
+
+  .row-1-of-1 {
+    height: auto;
+    width: 20rem;
+    //background-color: white;
+  }
+}
+

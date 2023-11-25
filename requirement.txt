@@ -18,3 +18,11 @@ npm install @mui/x-tree-view
 version control
 npm :  10.2.4
 node : v20.10.0
+.......
+sass
+#add this in package.json
+"devDependencies": {
+    "sass": "^1.69.3",
+    "sass-loader": "^13.3.2",
+    "webpack": "^5.89.0"
+  }
