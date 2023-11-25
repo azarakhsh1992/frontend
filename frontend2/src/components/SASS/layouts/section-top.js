@@ -36,7 +36,7 @@ const SectionTop = () => {
                         </div>
                         <div className="row-1-of-2 margin-top">
                             <div className="row">
-                                <div className="row-1-of-2 margin-remove">
+                                <div className="row-1-of-2">
                                     <button className="button-84">Home Page</button>
                                 </div>
                             </div>

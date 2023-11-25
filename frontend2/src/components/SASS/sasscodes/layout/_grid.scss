@@ -31,8 +31,14 @@
     }
   }
   .row-1-of-2 {
-    height: 5rem;
-    width: 15rem;
+    height: auto;
+    width: auto;
+  }
+
+  .row-1-of-3 {
+    height: auto;
+    width: auto;
+    margin-bottom: 3px !important;
   }
 
   .row-1-of-1 {

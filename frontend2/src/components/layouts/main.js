@@ -15,8 +15,8 @@ function Main() {
         {/*<Header/>*/}
         <Routes >
             {/*<Route exact path="/" Component={SignIn}/>*/}
-            {/*<Route exact path="/" Component={FigmaApp}/>   // under develop*/}
-            <Route exact path="/" Component={Page1}/>   // under develop
+            <Route exact path="/" Component={FigmaApp}/>   // under develop
+            {/*<Route exact path="/" Component={Page1}/>   // under develop*/}
             {/*<Route exact path={"/account"} Component={AccountPage}/>*/}
             {/*<Route exact path={"/request"} Component={RequestUser}/>*/}
         </Routes >
