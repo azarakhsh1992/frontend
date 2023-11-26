@@ -24,7 +24,7 @@ export const SectionTemp = () => {
                     </Button>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                            Max
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
@@ -32,7 +32,15 @@ export const SectionTemp = () => {
                     </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography  className={clsx(classes.temp_typo)}>
-                            Temp out
+                            Min
+                        </Typography>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            X&deg;C
+                        </Typography>
+                    </Box>
+                    <Box className={clsx(classes.btn_box_temp)}>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Current
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
@@ -55,26 +63,34 @@ export const SectionTemp = () => {
                     </Button>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                            Max
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
                         </Typography>
                     </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
-                        <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Min
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
                         </Typography>
                     </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
-                        <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Current
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
+                        </Typography>
+                    </Box>
+                    <Box className={clsx(classes.btn_box_temp)}>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Humidity
+                        </Typography>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            X%RH
                         </Typography>
                     </Box>
                 </Box>
@@ -86,26 +102,34 @@ export const SectionTemp = () => {
                     </Button>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                            Max
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
                         </Typography>
                     </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
-                        <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Min
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
                         </Typography>
                     </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
-                        <Typography className={clsx(classes.temp_typo)}>
-                            Temp in
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Current
                         </Typography>
                         <Typography  className={clsx(classes.temp_typo)}>
                             X&deg;C
+                        </Typography>
+                    </Box>
+                    <Box className={clsx(classes.btn_box_temp)}>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            Humidity
+                        </Typography>
+                        <Typography  className={clsx(classes.temp_typo)}>
+                            X%RH
                         </Typography>
                     </Box>
                 </Box>
