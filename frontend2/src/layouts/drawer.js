@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {useAuth} from "../../hooks/useAuth";
+import {useAuth} from "../hooks/useAuth";
 import {Divider} from "@mui/material";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';

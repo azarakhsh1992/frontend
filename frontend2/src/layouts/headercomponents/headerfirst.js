@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box, Button, Tab, Tabs, Typography} from "@mui/material";
 import ApiIcon from "@mui/icons-material/Api";
-import {useAuth} from "../../../hooks/useAuth";
-import {Logout} from '../../functions/globaluserfunction';
+import {useAuth} from "../../hooks/useAuth";
+import {Logout} from '../../components/functions/globaluserfunction';
 import {useNavigate} from "react-router-dom";
 
 

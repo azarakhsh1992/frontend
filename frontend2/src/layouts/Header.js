@@ -6,7 +6,7 @@ import SwipeableTemporaryDrawer from './drawer';
 import Headerfirst from './headercomponents/headerfirst';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import {useAuth} from "../../hooks/useAuth";
+import {useAuth} from "../hooks/useAuth";
 
 
 const links = ["History","Scan QrCode"];
