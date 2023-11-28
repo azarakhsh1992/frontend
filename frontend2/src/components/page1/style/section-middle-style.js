@@ -6,17 +6,24 @@ export const useStyles = makeStyles((theme) => ({
         height:'900px'
     },
     mainbox:{
-        height:'50%',
+        height:'100%',
         width:'100%',
-        // backgroundColor:'red',
+        padding:'auto auto !important'
     },
-    door_box:{
-        height:'50%',
+    temp_box:{
+        height:'300px',
         width:'100%',
+        marginBottom:'10px !important'
+    }
+    ,
+    door_box:{
+        height:'200px',
+        width:'100%',
+        marginBottom:'10px !important'
         // backgroundColor:'red'
     },
     energy_box:{
-        height:'50%',
+        height:'200px',
         width:'100%',
         // backgroundColor:'blue'
     }

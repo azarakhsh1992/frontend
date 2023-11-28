@@ -14,7 +14,7 @@ export const SectionDoor = () => {
 
     const classes = useStyles();
     return (
-        <Container classname={clsx(classes.maincontainer)}>
+        <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.door_box)}>
                     <Button variant={"contained"} className={clsx(classes.btn)}>

@@ -14,7 +14,7 @@ export const SectionTemp = () => {
 
     const classes = useStyles();
     return (
-        <Container classname={clsx(classes.maincontainer)}>
+        <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.btn_box)}>
                     <Button variant={"contained"} className={clsx(classes.btn)}>
