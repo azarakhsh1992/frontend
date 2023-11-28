@@ -1,4 +1,6 @@
 import makeStyles from '@mui/styles/makeStyles';
+
+
 export const useStyles = makeStyles((theme) => ({
 
     maincontainer:{
@@ -16,7 +18,6 @@ export const useStyles = makeStyles((theme) => ({
     btn_box:{
         display:'flex',
         flexDirection:'row',
-        alignItems:'flex-start !important',
         '&:not(:last-child)':{
             marginBottom:"30px",
         },
@@ -30,9 +31,24 @@ export const useStyles = makeStyles((theme) => ({
             marginRight:'10px'
         }
     },
-    title_box:{
+    modal_box:{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: "90%",
+        height:'500px',
+        backgroundColor: 'white',
+        border: '2px solid #000',
+        boxShadow: 24,
         display:'flex',
-        flexDirection:'row !important',
+        flexDirection:'column',
+        padding:'10px 10px !important'
+        // p: 4,
+    },
+    modal_box_top:{
+        display:'flex',
+        flexDirection:'row',
     },
     btn:{
         height:'auto !important',
@@ -45,6 +61,10 @@ export const useStyles = makeStyles((theme) => ({
             backgroundColor: `rgba(0,0,0,.8) !important`,
         }
     },
+    btn_modal_close:{
+        margin:'10px 0 0 220px !important',
+        width:'auto !important'
+    },
     btn_typo:{
         textTransform:'none !important',
     },
@@ -52,13 +72,5 @@ export const useStyles = makeStyles((theme) => ({
         textOverflow:"ellipsis !important",
         overflow:"hidden",
         whiteSpace:"nowrap",
-    },
-    title_typo:{
-        height:'30px !important',
-        display:'flex',
-        justifyContent:'center !important',
-        alignItems:'center !important',
-        marginRight:'5px !important',
-        marginLeft:'0px !important'
     }
 }));

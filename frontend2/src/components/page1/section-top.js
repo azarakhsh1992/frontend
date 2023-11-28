@@ -29,7 +29,7 @@ const SectionTop = () => {
                         <Typography className={clsx(classes.btn_typo)}>meine Schranke</Typography>
                     </Button>
 
-                    <Button variant={"contained"} className={clsx(classes.btn)}>
+                    <Button variant={"contained"} className={clsx(classes.btn,classes.btn_logout)}>
                         <Typography className={clsx(classes.btn_typo)}>Ausloggen</Typography>
                     </Button>
                 </Box>

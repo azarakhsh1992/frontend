@@ -3,33 +3,23 @@ export const useStyles = makeStyles((theme) => ({
 
     maincontainer:{
         alignItems:'center',
+        height:'500px'
     },
     mainbox:{
-        height:'30vh',
+        height:'100%',
         width:'100%',
-        // backgroundColor:'red',
         display:'flex',
-        flexDirection:'row',
+        flexDirection:'column !important'
     },
-    leftbox:{
-        height:'100%',
-        width:'50%',
-        // backgroundColor:'black',
+    btn_box:{
         display:'flex',
-        flexDirection:'column',
-        alignItems:'flex-start'
-    },
-    rightbox:{
-        height:'100%',
-        width:'50%',
-        // backgroundColor:'blue',
-        display:'flex',
-        flexDirection:'column',
-        alignItems:'center'
+        alignItems:'center !important',
+        marginTop:'5px !important',
+        flexDirection:'row !important'
     },
     btn:{
         height:'auto !important',
-        width:'60%',
+        width:'40%',
         backgroundColor: `${theme.palette.tertiary.gray} !important`,
         color: `white !important`,
         borderRadius:'20px !important',
@@ -37,9 +27,6 @@ export const useStyles = makeStyles((theme) => ({
         '&:focus':{
             backgroundColor: `rgba(0,0,0,.8) !important`,
         }
-    },
-    btn_logout:{
-        backgroundColor:'red !important'
     },
     btn_typo:{
         textTransform:'none !important',

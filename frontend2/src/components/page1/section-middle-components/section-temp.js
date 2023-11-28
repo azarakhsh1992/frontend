@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-temp-style";
+import PopupData from "./popup-data";
 
 
 export const SectionTemp = () => {
@@ -17,11 +18,12 @@ export const SectionTemp = () => {
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.btn_box)}>
-                    <Button variant={"contained"} className={clsx(classes.btn)}>
-                        <Typography>
+                    <Box className={clsx(classes.title_box)}>
+                        <Typography className={clsx(classes.title_typo)}>
                             Top
                         </Typography>
-                    </Button>
+                        <PopupData txt={"Top"}/>
+                    </Box>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
                             Max
@@ -56,11 +58,10 @@ export const SectionTemp = () => {
                     </Box>
                 </Box>
                 <Box className={clsx(classes.btn_box)}>
-                    <Button variant={"contained"} className={clsx(classes.btn)}>
-                        <Typography>
-                            Middle
-                        </Typography>
-                    </Button>
+                    <Typography className={clsx(classes.title_typo)}>
+                        Mid
+                    </Typography>
+                    <PopupData txt={"Middle"}/>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
                             Max
@@ -95,11 +96,10 @@ export const SectionTemp = () => {
                     </Box>
                 </Box>
                 <Box className={clsx(classes.btn_box)}>
-                    <Button variant={"contained"} className={clsx(classes.btn)}>
-                        <Typography>
-                            Bottom
-                        </Typography>
-                    </Button>
+                    <Typography className={clsx(classes.title_typo)}>
+                        Bot
+                    </Typography>
+                    <PopupData txt={"Bottom"}/>
                     <Box className={clsx(classes.btn_box_temp)}>
                         <Typography className={clsx(classes.temp_typo)}>
                             Max
