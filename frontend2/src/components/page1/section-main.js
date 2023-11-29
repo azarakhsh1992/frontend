@@ -4,23 +4,26 @@ import SectionMiddle from "./section-middle";
 import clsx from "clsx";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import {useStyles} from "./style/section-main-style";
 import QrReaderd from "../qrcode/ReactQrReader";
 import {useState} from "react";
+
 
 
 const SectionMain = () => {
 
     const [QrScanned,SetQrScanned] = useState(null);
 
+
     const classes = useStyles();
     return (
         <>
             <Container className={clsx(classes.maincontainer)}>
                 <Box className={clsx(classes.mainbox)}>
-                    <Box className={clsx(classes.top_box)}>
-                        <SectionTop/>
-                    </Box>
+                            <Box className={clsx(classes.top_box)}>
+                                <SectionTop QrScanned={(QrScanned === null ? true : false)}/>
+                            </Box>
                     {
                         QrScanned !== null ?
                             <Box>

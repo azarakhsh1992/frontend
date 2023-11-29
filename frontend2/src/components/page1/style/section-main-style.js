@@ -18,5 +18,5 @@ export const useStyles = makeStyles((theme) => ({
     middle_box:{
         marginTop:'60px !important',
         marginBottom:'30px !important',
-    }
+    },
 }));

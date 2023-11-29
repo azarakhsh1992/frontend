@@ -47,9 +47,17 @@ const PopupData = ({txt}) => {
                                 <CloseIcon></CloseIcon>
                             </Button>
                         </Box>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            DATA TO SHOW
-                        </Typography>
+                        <Box className={clsx(classes.modal_box_bot)}>
+                            {
+                                Array.from({length : 10},(index,pk) => {
+                                    return (
+                                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                                            DATA TO SHOW {pk+1} -----> (Style will apply later)
+                                        </Typography>
+                                    );
+                                })
+                            }
+                        </Box>
                     </Box>
                 </Fade>
             </Modal>

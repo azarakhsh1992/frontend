@@ -8,8 +8,14 @@ export const useStyles = makeStyles((theme) => ({
         height:'30vh',
         width:'100%',
         // backgroundColor:'red',
+        position:'relative'
+    },
+    top_box_sectiontop:{
+        height:'100%',
+        width:'100%',
         display:'flex',
         flexDirection:'row',
+        position:'absolute'
     },
     leftbox:{
         height:'100%',

@@ -47,8 +47,12 @@ export const useStyles = makeStyles((theme) => ({
         // p: 4,
     },
     modal_box_top:{
-        display:'flex',
-        flexDirection:'row',
+        display:'flex !important',
+        flexDirection:'row !important',
+    },
+    modal_box_bot:{
+        display:'flex !important',
+        flexDirection:"column !important"
     },
     btn:{
         height:'auto !important',

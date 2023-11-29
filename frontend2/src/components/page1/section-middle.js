@@ -39,7 +39,7 @@ const SectionMiddle = () => {
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-
+				{/*TEMP START*/}
                 <Box className={clsx(classes.temp_box)}>
                     <TabContext value={value_tmp}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -60,7 +60,8 @@ const SectionMiddle = () => {
                         })}
                     </TabContext>
                 </Box>
-
+                {/*TEMP END*/}
+                {/*DOOR START*/}
                 <Box className={clsx(classes.door_box)}>
                     <TabContext value={value_door}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -78,10 +79,12 @@ const SectionMiddle = () => {
                         })}
                     </TabContext>
                 </Box>
-
+                {/*DOOR END*/}
+                {/*ENERGY START*/}
                 <Box className={clsx(classes.energy_box)}>
                     <SectionEnergy/>
                 </Box>
+            	{/*ENERGY END*/}
             </Box>
         </Container>
     );
