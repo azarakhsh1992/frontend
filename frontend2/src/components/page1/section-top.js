@@ -4,20 +4,24 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Fade from "@mui/material/Fade";
 // multi class import
 import clsx from "clsx";
 // style
 import {useStyles} from "./style/section-top-style";
-import Fade from "@mui/material/Fade";
+//components
 import SectionRequest from "./section-top-components/section-request";
+import AlertDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
 
 
 const SectionTop = ({QrScanned}) => {
+
     const [RequestChecked,SetRequestChecked] = useState(false);
+
     const classes = useStyles();
-    const handleButton = (event) => {
-        SetRequestChecked(true);
-    }
+    // const handleButton = (event) => {
+    //     SetRequestChecked(true);
+    // }
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
@@ -45,10 +49,11 @@ const SectionTop = ({QrScanned}) => {
                                 <Typography className={clsx(classes.btn_typo)}>Schrank XY Halle 16</Typography>
                             </Button>
 
-                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}
-                            	disabled={QrScanned}>
-                                <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>
-                            </Button>
+                            {/*<Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}*/}
+                            {/*	disabled={QrScanned}>*/}
+                            {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
+                            {/*</Button>*/}
+                            <AlertDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}/>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>HomePage</Typography>
