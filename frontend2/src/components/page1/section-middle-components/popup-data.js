@@ -11,6 +11,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import clsx from "clsx";
 //style
 import {useStyles} from "./style/popup-data-style";
+import TabList from "@mui/lab/TabList";
+import Tab from "@mui/material/Tab";
+import TabPanel from "@mui/lab/TabPanel";
+import {SectionTemp} from "./section-temp";
+import TabContext from "@mui/lab/TabContext";
 
 
 const PopupData = ({txt}) => {
@@ -20,6 +25,15 @@ const PopupData = ({txt}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    // DataToShow ArrayList
+    const TempTab = ["24H","this Week","This Month"];
+
+    const [value_tmp, setValue_tmp] = React.useState('1');
+
+    const handleChange_tmp = (event, newValue) => {
+        setValue_tmp(newValue);
+    };
 
     return (
         <div>
@@ -48,15 +62,24 @@ const PopupData = ({txt}) => {
                             </Button>
                         </Box>
                         <Box className={clsx(classes.modal_box_bot)}>
-                            {
-                                Array.from({length : 10},(index,pk) => {
+                            <TabContext value={value_tmp}>
+                                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                                    <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_tmp} aria-label="lab API tabs example">
+                                        {TempTab.map((value, index)=>{
+                                            return (
+                                                <Tab label={value} value={`${index}`} />
+                                            );
+                                        })}
+                                    </TabList>
+                                </Box>
+                                {TempTab.map((value, index)=>{
                                     return (
-                                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                                            DATA TO SHOW {pk+1} -----> (Style will apply later)
-                                        </Typography>
+                                        <TabPanel value={`${index}`}>
+                                            max
+                                        </TabPanel>
                                     );
-                                })
-                            }
+                                })}
+                            </TabContext>
                         </Box>
                     </Box>
                 </Fade>

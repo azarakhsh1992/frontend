@@ -41,7 +41,7 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
                 TransitionComponent={Transition}
                 transitionDuration={500}
                 keepMounted
-                onClose={handleClose}
+                onClose={(event) => handleClose(event,"cancel")}
                 aria-describedby="alert-dialog-slide-description"
             >
                 <DialogTitle>{"Making Request"}</DialogTitle>
