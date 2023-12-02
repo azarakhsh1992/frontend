@@ -15,7 +15,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" timeout={2000} ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClick}) {
+export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClick,setQr}) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -25,6 +25,10 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
     const handleClose = (event,res) => {
         setOpen(false);
         setState(res);
+        if(res === "scan"){
+            setQr(null);
+            window.location.reload();
+        };
     };
 
     return (
@@ -47,8 +51,9 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(event)=>{handleClose(event,false)}}>Disagree</Button>
-                    <Button onClick={(event)=>{handleClose(event,true)}}>Agree</Button>
+                    <Button onClick={(event)=>{handleClose(event,"cancel")}}>Disagree</Button>
+                    <Button onClick={(event)=>{handleClose(event,"accept")}}>Agree</Button>
+                    <Button onClick={(event)=>{handleClose(event,"scan")}}>Scan Qr</Button>
                 </DialogActions>
             </Dialog>
         </React.Fragment>

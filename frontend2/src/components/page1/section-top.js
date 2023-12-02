@@ -14,9 +14,8 @@ import SectionRequest from "./section-top-components/section-request";
 import AlertDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
 
 
-const SectionTop = ({QrScanned}) => {
+const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr}) => {
 
-    const [RequestChecked,SetRequestChecked] = useState(false);
 
     const classes = useStyles();
     // const handleButton = (event) => {
@@ -25,7 +24,7 @@ const SectionTop = ({QrScanned}) => {
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                <Fade in={!RequestChecked} timeout={300}>
+                <Fade in={(RequestChecked === "cancel")} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
@@ -53,7 +52,8 @@ const SectionTop = ({QrScanned}) => {
                             {/*	disabled={QrScanned}>*/}
                             {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
                             {/*</Button>*/}
-                            <AlertDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}/>
+                            <AlertDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
+                            	setQr={setQr}/>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>HomePage</Typography>
@@ -61,7 +61,7 @@ const SectionTop = ({QrScanned}) => {
                         </Box>
                     </Box>
                 </Fade>
-                <Fade in={RequestChecked} timeout={300}>
+                <Fade in={(RequestChecked === "accept")} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <SectionRequest Requestunchecked={SetRequestChecked}/>
                     </Box>

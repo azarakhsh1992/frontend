@@ -14,6 +14,7 @@ import {useState} from "react";
 const SectionMain = () => {
 
     const [QrScanned,SetQrScanned] = useState(null);
+    const [RequestChecked,SetRequestChecked] = useState("cancel");
 
 
     const classes = useStyles();
@@ -22,7 +23,8 @@ const SectionMain = () => {
             <Container className={clsx(classes.maincontainer)}>
                 <Box className={clsx(classes.mainbox)}>
                             <Box className={clsx(classes.top_box)}>
-                                <SectionTop QrScanned={(QrScanned === null ? true : false)}/>
+                                <SectionTop QrScanned={(QrScanned === null ? true : false)} RequestChecked={RequestChecked}
+                                	SetRequestChecked={SetRequestChecked} setQr={SetQrScanned}/>
                             </Box>
                     {
                         QrScanned !== null ?
