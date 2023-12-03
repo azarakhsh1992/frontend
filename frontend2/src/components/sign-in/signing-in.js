@@ -47,7 +47,7 @@ export default function SignIn() {
         const datas = await auth({username, password});
         if(datas !== undefined) {
             setAuth(datas);
-            history('/account');
+            history('/sectionmain');
         }
         else {
             console.log('error');

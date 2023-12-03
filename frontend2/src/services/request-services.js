@@ -2,7 +2,7 @@ import React from 'react';
 import {status} from '../utils';
 
 export function SetRequest(userData){
-    return fetch('http://127.0.0.1:8000/web/request/',{
+    return fetch('http://127.0.0.1:8000/web/requests/userrequest',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

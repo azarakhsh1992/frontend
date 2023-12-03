@@ -44,10 +44,10 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
                 onClose={(event) => handleClose(event,"cancel")}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Making Request"}</DialogTitle>
+                <DialogTitle>{"Requesting Access"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Are You Sure that want open this door ?
+                        Are you sure u want open felandoor
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
