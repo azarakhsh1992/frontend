@@ -32,7 +32,6 @@ const SectionMain = () => {
         SetQrScanned(data.get('qrcode'));
         if(datas !== undefined){
             SetMonitoringData(datas);
-            console.log(datas);
         }
         else {
             SetMonitoringData(null);
@@ -54,7 +53,7 @@ const SectionMain = () => {
                             {
                                 (MonitoringData !== null) ?
                                     <Box>
-                                        <SectionMiddle className={clsx(classes.middle_box)}/>
+                                        <SectionMiddle className={clsx(classes.middle_box)} MonitoringDatas={MonitoringData}/>
                                     </Box>
                                     :
                                     <Box>

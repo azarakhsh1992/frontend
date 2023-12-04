@@ -18,12 +18,10 @@ import {SectionDoor} from "./section-middle-components/section-door";
 import {SectionEnergy} from "./section-middle-components/section-energy";
 
 
-const SectionMiddle = () => {
-    // Temp ArrayList
-    const TempTab = ["Rack Edge A","Rack Edge B","Network","Energy"];
+const SectionMiddle = ({MonitoringDatas}) => {
     // Door ArrayList
-    const DoorTab = ["Rack_Edge_A_Front","Rack_Edge_A_Rear","Rack_Edge_B_Front","Rack_Edge_B_Rear","Rack_AC_Front",
-                                "Rack_AC_Rear","Rack_Network","Rack_Energy"];
+    const DoorTab = ["Edge_A_Front","Edge_A_Rear","Edge_B_Front","Edge_B_Rear","Cooling_Front",
+                                "Cooling_Rear","Network_Network","Energy_Energy"];
     // Style Class
     const classes = useStyles();
     // Tabs Control
@@ -44,17 +42,18 @@ const SectionMiddle = () => {
                     <TabContext value={value_tmp}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_tmp} aria-label="lab API tabs example">
-                                {TempTab.map((value, index)=>{
+                                {Object.keys(MonitoringDatas.Temperature).map((value, index) => {
                                     return (
-                                        <Tab label={value} value={`${index}`} />
+                                        <Tab label={value} value={`${index+1}`}/>
                                     );
                                 })}
                             </TabList>
                         </Box>
-                        {TempTab.map((value, index)=>{
+                        {Object.keys(MonitoringDatas.Temperature).map((value, index,array)=>{
+                             // Object.keys(MonitoringDatas.Temperature[value]).map()
                             return (
-                                <TabPanel value={`${index}`}>
-                                    <SectionTemp/>
+                                <TabPanel value={`${index+1}`}>
+                                    <SectionTemp TemperatureData={MonitoringDatas.Temperature[value]}/>
                                 </TabPanel>
                             );
                         })}
@@ -67,15 +66,26 @@ const SectionMiddle = () => {
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_door} aria-label="lab API tabs example">
                                 {DoorTab.map((value, index) => {
-                                    return (<Tab label={value} value={`${index}`} />);
+                                    // console.log(MonitoringDatas.Door_Sensors);
+                                    if(MonitoringDatas.Door_Sensors[value]){
+                                        return (<Tab label={value} value={`${index+1}`} />);
+                                    }
+                                    else {
+                                        return null;
+                                    }
                                 })}
                             </TabList>
                         </Box>
                         {DoorTab.map((value, index) => {
-                            return (
-                                <TabPanel value={`${index}`}>
-                                    <SectionDoor/>
-                                </TabPanel>);
+                            if(MonitoringDatas.Door_Sensors[value]){
+                                return (
+                                    <TabPanel value={`${index+1}`}>
+                                        <SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>
+                                    </TabPanel>);
+                            }
+                            else {
+                                return null;
+                            }
                         })}
                     </TabContext>
                 </Box>

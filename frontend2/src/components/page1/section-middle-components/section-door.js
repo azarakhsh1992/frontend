@@ -10,7 +10,7 @@ import clsx from "clsx";
 import {useStyles} from "./style/section-door-style";
 
 
-export const SectionDoor = () => {
+export const SectionDoor = ({DoorDatas}) => {
 
     const classes = useStyles();
     return (
@@ -23,7 +23,7 @@ export const SectionDoor = () => {
                         </Typography>
                     </Button>
                     <Typography className={clsx(classes.door_status_typo)}>
-                        OPEN OR CLOSE
+                        {DoorDatas["Current"] ? "Open":"Close"}
                     </Typography>
                 </Box>
             </Box>
