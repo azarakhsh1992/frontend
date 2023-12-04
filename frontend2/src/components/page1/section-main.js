@@ -29,7 +29,7 @@ const SectionMain = () => {
         const data = new FormData(event.currentTarget);
 
         const datas = await GetData({'qr':data.get('qrcode')});
-
+        SetQrScanned(data.get('qrcode'));
         if(datas !== undefined){
             SetMonitoringData(datas);
             console.log(datas);
@@ -49,7 +49,7 @@ const SectionMain = () => {
                         <Box className={clsx(classes.mainbox)}>
                             <Box className={clsx(classes.top_box)}>
                                 <SectionTop QrScanned={(MonitoringData === null ? true : false)} RequestChecked={RequestChecked}
-                                            SetRequestChecked={SetRequestChecked} setQr={SetQrScanned}/>
+                                            SetRequestChecked={SetRequestChecked} setQr={SetQrScanned} AuthD={AuthD} DoorQr={QrScanned}/>
                             </Box>
                             {
                                 (MonitoringData !== null) ?

@@ -10,25 +10,36 @@ import Slide from '@mui/material/Slide';
 import Typography from "@mui/material/Typography";
 // multiple class
 import clsx from "clsx";
+import {useSetRequest} from "../../../../fetches/request-fetch";
+import {useEffect} from "react";
+import {SetRequest} from "../../../../services/request-services";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" timeout={2000} ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClick,setQr}) {
+export default function RequestDialogSlide({setState,Qrstate,title,defclass,onClick,setQr,DoorQr,AuthD}) {
+
     const [open, setOpen] = React.useState(false);
+    const [requestState,SetrequestState] = React.useState(null);
 
     const handleClickOpen = () => {
         setOpen(true);
     };
 
-    const handleClose = (event,res) => {
+    const HandleClose = async (event,res) => {
         setOpen(false);
         setState(res);
         if(res === "scan"){
             setQr(null);
+            SetrequestState(res);
             window.location.reload();
-        };
+        }
+        else if(res === "accept"){
+            SetrequestState(res);
+            const datas = await SetRequest({"user":AuthD.user.username,"qr":DoorQr},AuthD.token);
+            console.log(datas);
+        }
     };
 
     return (
@@ -41,7 +52,7 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
                 TransitionComponent={Transition}
                 transitionDuration={500}
                 keepMounted
-                onClose={(event) => handleClose(event,"cancel")}
+                onClose={(event) => HandleClose(event,"cancel")}
                 aria-describedby="alert-dialog-slide-description"
             >
                 <DialogTitle>{"Requesting Access"}</DialogTitle>
@@ -51,9 +62,9 @@ export default function AlertDialogSlide({setState,Qrstate,title,defclass,onClic
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(event)=>{handleClose(event,"cancel")}}>Disagree</Button>
-                    <Button onClick={(event)=>{handleClose(event,"accept")}}>Agree</Button>
-                    <Button onClick={(event)=>{handleClose(event,"scan")}}>Scan Qr</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"cancel")}}>Disagree</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"accept")}}>Agree</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"scan")}}>Scan Qr</Button>
                 </DialogActions>
             </Dialog>
         </React.Fragment>

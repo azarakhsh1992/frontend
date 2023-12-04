@@ -12,19 +12,19 @@ import {useStyles} from "./style/section-request-style";
 // components
 import AlertDialogSlide from "./section-request-components/request-dialogbox";
 import {CircularProgress} from "@mui/material";
+import {useSetRequest} from "../../../fetches/request-fetch";
 
 
 
-const SectionRequest = ({Requestunchecked}) => {
+const SectionRequest = ({Requestchecked,DoorQr,AuthD}) => {
 
     // style
     const classes = useStyles();
-
     //state to make request
 
 
     const handleRequest = (event) => {
-        Requestunchecked(false);
+        Requestchecked("cancel");
     }
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -37,8 +37,11 @@ const SectionRequest = ({Requestunchecked}) => {
                 </Box>
                 <Box className={clsx(classes.btn_box)}>
                     <Button variant={"outlined"} onClick={(event)=>{handleRequest(event)}} className={clsx(classes.btn)}>
-                        <Typography className={clsx(classes.btn_typo)}>
-                            Waiting
+                        {/*<Typography className={clsx(classes.btn_typo)}>*/}
+                        {/*    Waiting*/}
+                        {/*</Typography>*/}
+                        <Typography>
+                            {DoorQr}
                         </Typography>
                     </Button>
                 </Box>

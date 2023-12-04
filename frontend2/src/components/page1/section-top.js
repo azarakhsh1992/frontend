@@ -11,10 +11,10 @@ import clsx from "clsx";
 import {useStyles} from "./style/section-top-style";
 //components
 import SectionRequest from "./section-top-components/section-request";
-import AlertDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
+import RequestDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
 
 
-const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr}) => {
+const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD}) => {
 
 
     const classes = useStyles();
@@ -52,8 +52,8 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr}) => {
                             {/*	disabled={QrScanned}>*/}
                             {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
                             {/*</Button>*/}
-                            <AlertDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
-                            	setQr={setQr}/>
+                            <RequestDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
+                            	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr}/>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>HomePage</Typography>
@@ -63,7 +63,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr}) => {
                 </Fade>
                 <Fade in={(RequestChecked === "accept")} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
-                        <SectionRequest Requestunchecked={SetRequestChecked}/>
+                        <SectionRequest Requestchecked={SetRequestChecked} AuthD={AuthD} DoorQr={DoorQr}/>
                     </Box>
                 </Fade>
                 <Box>
