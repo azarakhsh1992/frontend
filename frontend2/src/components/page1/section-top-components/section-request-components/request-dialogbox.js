@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" timeout={2000} ref={ref} {...props} />;
 });
 
-export default function RequestDialogSlide({setState,Qrstate,title,defclass,onClick,setQr,DoorQr,AuthD}) {
+export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defclass,onClick,setQr,DoorQr,AuthD}) {
 
     const [open, setOpen] = React.useState(false);
     const [requestState,SetrequestState] = React.useState(null);
@@ -29,7 +29,7 @@ export default function RequestDialogSlide({setState,Qrstate,title,defclass,onCl
 
     const HandleClose = async (event,res) => {
         setOpen(false);
-        setState(res);
+        SetRequestChecked(res);
         if(res === "scan"){
             setQr(null);
             SetrequestState(res);

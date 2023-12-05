@@ -24,7 +24,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                <Fade in={(RequestChecked === "cancel")} timeout={300}>
+                <Fade in={(RequestChecked !== "accept")} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
@@ -52,7 +52,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                             {/*	disabled={QrScanned}>*/}
                             {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
                             {/*</Button>*/}
-                            <RequestDialogSlide setState={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
+                            <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
                             	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr}/>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
@@ -61,9 +61,9 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                         </Box>
                     </Box>
                 </Fade>
-                <Fade in={(RequestChecked === "accept")} timeout={300}>
+                <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
-                        <SectionRequest Requestchecked={SetRequestChecked} AuthD={AuthD} DoorQr={DoorQr}/>
+                        <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked} AuthD={AuthD} DoorQr={DoorQr}/>
                     </Box>
                 </Fade>
                 <Box>

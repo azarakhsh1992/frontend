@@ -10,7 +10,7 @@ import clsx from "clsx";
 import {useStyles} from "./style/section-energy-style";
 
 
-export const SectionEnergy = () => {
+export const SectionEnergy = ({EnergyData}) => {
 
     const classes = useStyles();
     return (
@@ -18,11 +18,11 @@ export const SectionEnergy = () => {
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.strom_box)}>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Strom</Typography>
-                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >XY KW</Typography>
+                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >{EnergyData["Power"]} KW</Typography>
                 </Box>
                 <Box className={clsx(classes.energie_box)}>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Energie</Typography>
-                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >XY KWh</Typography>
+                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{EnergyData["Energy"]} KWh</Typography>
                 </Box>
             </Box>
         </Container>

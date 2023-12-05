@@ -22,7 +22,7 @@ export const SectionDoor = ({DoorDatas}) => {
                             Status
                         </Typography>
                     </Button>
-                    <Typography className={clsx(classes.door_status_typo)}>
+                    <Typography className={clsx(classes.door_status_typo)} sx={{backgroundColor:`${DoorDatas["Current"] ? "red":"green"} !important`}}>
                         {DoorDatas["Current"] ? "Open":"Close"}
                     </Typography>
                 </Box>

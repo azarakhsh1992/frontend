@@ -27,12 +27,16 @@ const SectionMiddle = ({MonitoringDatas}) => {
     // Tabs Control
     const [value_tmp, setValue_tmp] = React.useState('1');
     const [value_door, setValue_door] = React.useState('1');
+    const [value_energy, setValue_energy] = React.useState('1');
 
     const handleChange_tmp = (event, newValue) => {
         setValue_tmp(newValue);
     };
     const handleChange_door = (event, newValue) => {
         setValue_door(newValue);
+    };
+    const handleChange_energy = (event, newValue) => {
+        setValue_energy(newValue);
     };
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -92,7 +96,34 @@ const SectionMiddle = ({MonitoringDatas}) => {
                 {/*DOOR END*/}
                 {/*ENERGY START*/}
                 <Box className={clsx(classes.energy_box)}>
-                    <SectionEnergy/>
+                    <TabContext value={value_energy}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_energy} aria-label="lab API tabs example">
+                                {Object.keys(MonitoringDatas.Energy).map((value, index) => {
+                                    // console.log(MonitoringDatas.Door_Sensors);
+                                    if(MonitoringDatas.Energy[value]){
+                                        return (<Tab label={value} value={`${index+1}`} />);
+                                    }
+                                    else {
+                                        return null;
+                                    }
+                                })}
+                            </TabList>
+                        </Box>
+                        {Object.keys(MonitoringDatas.Energy).map((value, index) => {
+                            if(MonitoringDatas.Energy[value]){
+                                return (
+                                    <TabPanel value={`${index+1}`}>
+                                        {/*<SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>*/}
+                                        <SectionEnergy EnergyData={MonitoringDatas.Energy[value]}/>
+                                    </TabPanel>);
+                            }
+                            else {
+                                return null;
+                            }
+                        })}
+                    </TabContext>
+                    {/*<SectionEnergy EnergyData={MonitoringDatas.Energy}/>*/}
                 </Box>
             	{/*ENERGY END*/}
             </Box>
