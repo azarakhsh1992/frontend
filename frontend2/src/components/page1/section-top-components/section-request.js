@@ -23,35 +23,75 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
     //state to make request
     // countdown state
     const [count, setCount] = useState(10);
-    console.log(Requestchecked);
-    //coutdown
-    useEffect(()=>{
-        if(Requestchecked === "accept"){
-            setCount(10);
-            SetRequestchecked("counting");
-        }
-        const interval = setInterval(() => {
-            if(Requestchecked === "counting"){
-                setCount(prevCount => {
-                    // You can add any additional logic here if needed
-                    // For example, stopping the countdown when it reaches zero
-                    if (prevCount <= 0) {
-                        clearInterval(interval);
-                        SetRequestchecked("ignored");
-                        return 0; // Stop at zero
-                    }
-                    return prevCount - 1;
-                });
-            }
-        }, 1000);
+    //stop condition
 
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
-    },[]);
+    const [fetchResult, setFetchResult] = useState(false);
+    const [shouldStopCountdown, setShouldStopCountdown] = useState(false);
+    const [isIgnored, setIsIgnored] = useState(false);
+    console.log(Requestchecked);
+    useEffect(()=>{
+        if(DoorQr !== null){
+            if(Requestchecked === "accept"){
+                setCount(10);
+                SetRequestchecked("counting");
+                console.log(Requestchecked);
+            }
+            let interval = setInterval(() => {
+                if(Requestchecked==="counting"){
+                    setCount(prevCount => {
+                        // You can add any additional logic here if needed
+                        // For example, stopping the countdown when it reaches zero
+                        if (prevCount < 1) {
+                            clearInterval(interval);
+                            SetRequestchecked("ignored");
+                            return 0; // Stop at zero
+                        }
+                        return prevCount - 1;
+                    });
+                }
+            }, 1000);
+
+            // Clear interval on component unmount
+            console.log(count);
+            return () => clearInterval(interval);
+        }
+    },[Requestchecked]);
+
+// Stop countdown if needed
+    useEffect(() => {
+        if (shouldStopCountdown) {
+            setCount(0);
+        }
+    }, [shouldStopCountdown]);
+
+// Fetch data every 3 seconds
+    useEffect(() => {
+        const fetchDataInterval = setInterval(() => {
+            // Replace this with your actual data fetching logic
+            // fetchData().then(response => {
+            //     if (response === true) {
+            //         setShouldStopCountdown(true);
+            //     }
+            // });
+            console.log('fetches data');
+        }, 3000);
+
+        return () => clearInterval(fetchDataInterval);
+    }, []);
+
+    // Set ignored state if countdown reaches zero
+    useEffect(() => {
+        if (count === 0 && !shouldStopCountdown) {
+            setIsIgnored(true);
+        }
+    }, [count, shouldStopCountdown]);
+
 
 
     const handleRequest = (event) => {
-        SetRequestchecked("cancel");
+        // SetRequestchecked("cancel");
+        setCount(0);
+        // setIsIgnored(true);
     }
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -68,7 +108,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
                         {/*    Waiting*/}
                         {/*</Typography>*/}
                         <Typography>
-                            {Requestchecked === "countdown" ? count : "Request Ignored"}
+                            {Requestchecked !== "ignored" ? `${count}` : "Request Ignored"}
                         </Typography>
                     </Button>
                 </Box>
