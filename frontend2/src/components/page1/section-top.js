@@ -16,7 +16,8 @@ import RequestDialogSlide from "./section-top-components/section-request-compone
 
 const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD}) => {
 
-
+    //request data
+    const [reqData,setreqData] = useState(null);
     const classes = useStyles();
     // const handleButton = (event) => {
     //     SetRequestChecked(true);
@@ -53,7 +54,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                             {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
                             {/*</Button>*/}
                             <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
-                            	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr}/>
+                            	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr} setreqData={setreqData}/>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>HomePage</Typography>
@@ -63,7 +64,8 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                 </Fade>
                 <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
-                        <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked} AuthD={AuthD} DoorQr={DoorQr}/>
+                        <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked}
+                                        AuthD={AuthD} DoorQr={DoorQr} reqData={reqData} setreqData={setreqData}/>
                     </Box>
                 </Fade>
                 <Box>

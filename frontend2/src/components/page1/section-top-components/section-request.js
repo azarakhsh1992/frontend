@@ -12,17 +12,19 @@ import {useStyles} from "./style/section-request-style";
 // components
 import AlertDialogSlide from "./section-request-components/request-dialogbox";
 import {CircularProgress} from "@mui/material";
-import {useSetRequest} from "../../../fetches/request-fetch";
+import {CancelRequest, SetRequest} from "../../../services/request-services";
 
 
 
-const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
+const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData, setreqData}) => {
 
     // style
     const classes = useStyles();
     //state to make request
     // countdown state
-    const [count, setCount] = useState(10);
+    const [count, setCount] = useState(60);
+    // active request
+    const [activeReq,setactiveReq] = useState(null);
     //stop condition
 
     const [fetchResult, setFetchResult] = useState(false);
@@ -32,7 +34,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
     useEffect(()=>{
         if(DoorQr !== null){
             if(Requestchecked === "accept"){
-                setCount(10);
+                setCount(60);
                 SetRequestchecked("counting");
                 console.log(Requestchecked);
             }
@@ -52,7 +54,6 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
             }, 1000);
 
             // Clear interval on component unmount
-            console.log(count);
             return () => clearInterval(interval);
         }
     },[Requestchecked]);
@@ -73,11 +74,17 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
             //         setShouldStopCountdown(true);
             //     }
             // });
-            console.log('fetches data');
+            if(Requestchecked === "counting"){
+                // const getData = async () => {
+                //     const data = await SetRequest();
+                // }
+                // getData();
+                console.log('fetches data');
+            }
         }, 3000);
 
         return () => clearInterval(fetchDataInterval);
-    }, []);
+    }, [Requestchecked]);
 
     // Set ignored state if countdown reaches zero
     useEffect(() => {
@@ -86,7 +93,18 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD}) => {
         }
     }, [count, shouldStopCountdown]);
 
-
+    useEffect(()=>{
+        if(Requestchecked==="ignored"){
+            console.log(reqData.id);
+            setreqData(null);
+            const getData = async () => {
+                const data = await CancelRequest({"request":{
+                        'id': `${reqData.id}`,
+                    }},AuthD.token);
+            }
+            getData();
+        }
+    },[Requestchecked])
 
     const handleRequest = (event) => {
         // SetRequestchecked("cancel");
