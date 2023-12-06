@@ -94,7 +94,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
     }, [count, shouldStopCountdown]);
 
     useEffect(()=>{
-        if(Requestchecked==="ignored"){
+        if(Requestchecked==="ignored" && reqData){
             console.log(reqData.id);
             setreqData(null);
             const getData = async () => {
