@@ -12,7 +12,7 @@ import {useStyles} from "./style/section-request-style";
 // components
 import AlertDialogSlide from "./section-request-components/request-dialogbox";
 import {CircularProgress} from "@mui/material";
-import {CancelRequest, SetRequest} from "../../../services/request-services";
+import {CancelRequest, CheckRequestButton, SetRequest} from "../../../services/request-services";
 
 
 
@@ -68,23 +68,22 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
 // Fetch data every 3 seconds
     useEffect(() => {
         const fetchDataInterval = setInterval(() => {
-            // Replace this with your actual data fetching logic
-            // fetchData().then(response => {
-            //     if (response === true) {
-            //         setShouldStopCountdown(true);
-            //     }
-            // });
             if(Requestchecked === "counting"){
-                // const getData = async () => {
-                //     const data = await SetRequest();
-                // }
-                // getData();
-                console.log('fetches data');
+                const getData = async () => {
+                    const data = await CheckRequestButton({"request":{
+                            'id': `${reqData ? reqData.id : null}`,
+                        }},AuthD.token);
+                    if(data && data.access == true){
+                        SetRequestchecked("onprogress")
+                        setCount(0);
+                    }
+                }
+                getData();
             }
         }, 3000);
 
         return () => clearInterval(fetchDataInterval);
-    }, [Requestchecked]);
+    }, [Requestchecked,reqData]);
 
     // Set ignored state if countdown reaches zero
     useEffect(() => {
@@ -95,8 +94,8 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
 
     useEffect(()=>{
         if(Requestchecked==="ignored" && reqData){
-            console.log(reqData.id);
             setreqData(null);
+            console.log(reqData);
             const getData = async () => {
                 const data = await CancelRequest({"request":{
                         'id': `${reqData.id}`,
@@ -116,7 +115,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.message_box)}>
                     <Typography className={clsx(classes.message_typo)}>
-                        Please push the button to confirm request
+                        {Requestchecked === "onprogress" ? "u can open the door" : "Please wait"}
                     </Typography>
                     <CircularProgress/>
                 </Box>

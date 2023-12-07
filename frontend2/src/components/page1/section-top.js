@@ -25,7 +25,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                <Fade in={((RequestChecked !== "accept")&&(RequestChecked!=="counting"))} timeout={300}>
+                <Fade in={((RequestChecked !== "accept")&&(RequestChecked!=="counting")&&(RequestChecked!=="onprogress"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>

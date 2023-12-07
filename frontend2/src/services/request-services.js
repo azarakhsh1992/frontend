@@ -26,3 +26,15 @@ export function CancelRequest(requestData,token){
 }
 
 // TODO: correct url
+
+export function CheckRequestButton(requestData,token){
+    return fetch('http://127.0.0.1:8000/web/requests/frontend/',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`
+        },
+        body: JSON.stringify(requestData)
+    }).then(status).catch(e => {console.log(e);
+    })
+}
