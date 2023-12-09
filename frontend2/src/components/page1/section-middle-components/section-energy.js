@@ -8,11 +8,13 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-energy-style";
+import {useHistoryEnergy} from "../../../fetches/monitoring-fetches";
 
 
-export const SectionEnergy = ({EnergyData}) => {
+export const SectionEnergy = ({EnergyData,DoorQr}) => {
 
     const classes = useStyles();
+
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>

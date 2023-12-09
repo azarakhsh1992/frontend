@@ -53,7 +53,7 @@ const SectionMain = () => {
                             {
                                 (MonitoringData !== null) ?
                                     <Box>
-                                        <SectionMiddle className={clsx(classes.middle_box)} MonitoringDatas={MonitoringData}/>
+                                        <SectionMiddle className={clsx(classes.middle_box)} MonitoringDatas={MonitoringData} DoorQr={QrScanned}/>
                                     </Box>
                                     :
                                     <Box>

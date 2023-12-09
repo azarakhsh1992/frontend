@@ -16,9 +16,11 @@ import {useStyles} from "./style/section-middle-style";
 import {SectionTemp} from "./section-middle-components/section-temp";
 import {SectionDoor} from "./section-middle-components/section-door";
 import {SectionEnergy} from "./section-middle-components/section-energy";
+import {useEffect} from "react";
+import {useHistoryEnergy, useHistoryTemp} from "../../fetches/monitoring-fetches";
 
 
-const SectionMiddle = ({MonitoringDatas}) => {
+const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
     const DoorTab = ["Edge_A_Front","Edge_A_Rear","Edge_B_Front","Edge_B_Rear","Cooling_Front",
                                 "Cooling_Rear","Network_Network","Energy_Energy"];
@@ -28,6 +30,10 @@ const SectionMiddle = ({MonitoringDatas}) => {
     const [value_tmp, setValue_tmp] = React.useState('1');
     const [value_door, setValue_door] = React.useState('1');
     const [value_energy, setValue_energy] = React.useState('1');
+	// Histories
+    const [historyTemp, loadingTemp, errorTemp] = useHistoryTemp({'qr':DoorQr});
+    const [historyEnergy, loadingEnergy, errorEnergy] = useHistoryEnergy({"qr":DoorQr})
+
 
     const handleChange_tmp = (event, newValue) => {
         setValue_tmp(newValue);
@@ -57,7 +63,7 @@ const SectionMiddle = ({MonitoringDatas}) => {
                              // Object.keys(MonitoringDatas.Temperature[value]).map()
                             return (
                                 <TabPanel value={`${index+1}`}>
-                                    <SectionTemp TemperatureData={MonitoringDatas.Temperature[value]}/>
+                                    <SectionTemp TemperatureData={MonitoringDatas.Temperature[value]} HistoryTemp={(historyTemp && historyTemp[value])}/>
                                 </TabPanel>
                             );
                         })}
@@ -115,7 +121,7 @@ const SectionMiddle = ({MonitoringDatas}) => {
                                 return (
                                     <TabPanel value={`${index+1}`}>
                                         {/*<SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>*/}
-                                        <SectionEnergy EnergyData={MonitoringDatas.Energy[value]}/>
+                                        <SectionEnergy EnergyData={MonitoringDatas.Energy[value]} DoorQr={DoorQr}/>
                                     </TabPanel>);
                             }
                             else {

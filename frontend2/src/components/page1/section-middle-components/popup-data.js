@@ -16,9 +16,10 @@ import Tab from "@mui/material/Tab";
 import TabPanel from "@mui/lab/TabPanel";
 import {SectionTemp} from "./section-temp";
 import TabContext from "@mui/lab/TabContext";
+import {useEffect, useState} from "react";
 
 
-const PopupData = ({txt}) => {
+const PopupData = ({txt,HistoryData}) => {
 
     const classes = useStyles();
 
@@ -26,14 +27,16 @@ const PopupData = ({txt}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [HistData,setHistData] = useState(null);
     // DataToShow ArrayList
-    const TempTab = ["24H","this Week","This Month"];
+    const TempTab = ["hour","day","week","month"];
 
     const [value_tmp, setValue_tmp] = React.useState('1');
 
     const handleChange_tmp = (event, newValue) => {
         setValue_tmp(newValue);
     };
+
 
     return (
         <div>
@@ -66,18 +69,49 @@ const PopupData = ({txt}) => {
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_tmp} aria-label="lab API tabs example">
                                         {TempTab.map((value, index)=>{
-                                            return (
-                                                <Tab label={value} value={`${index}`} />
-                                            );
+
+                                                return (
+                                                    <Tab label={value} value={`${index}`} />
+                                                );
+
                                         })}
                                     </TabList>
                                 </Box>
                                 {TempTab.map((value, index)=>{
+                                    console.log(HistoryData && HistoryData[value])
                                     return (
                                         <TabPanel value={`${index}`}>
-                                            max
+                                            {HistoryData && Object.keys(HistoryData[value]).map((_value, index, array)=>{
+                                                return (
+                                                    <Box className={clsx(classes.history_box)}>
+                                                        <Box className={clsx(classes.history_box_element)}>
+                                                            <Typography className={clsx(classes.history_typo)}>
+                                                                {HistoryData ? _value :'not defined'}:
+                                                            </Typography>
+                                                            <Typography className={clsx(classes.history_typo)}>
+                                                                {HistoryData ? HistoryData[value][_value] :'not defined'}
+                                                            </Typography>
+                                                        </Box>
+                                                    </Box>
+                                                );
+                                            })}
+                                            {/*{*/}
+                                            {/*    HistoryData[value] &&*/}
+                                            {/*    Object.keys(HistoryData[value]).map((_value, index) => {*/}
+                                            {/*        if(HistoryData[value]?.[_value]){*/}
+                                            {/*            return (*/}
+                                            {/*                <>*/}
+                                            {/*                    <Typography>{_value}</Typography>*/}
+                                            {/*                    /!* Optional: <Typography>{HistoryData[value][_value]}</Typography> *!/*/}
+                                            {/*                </>*/}
+                                            {/*            );*/}
+                                            {/*        }*/}
+                                            {/*    })*/}
+                                            {/*}*/}
+
                                         </TabPanel>
                                     );
+
                                 })}
                             </TabContext>
                         </Box>

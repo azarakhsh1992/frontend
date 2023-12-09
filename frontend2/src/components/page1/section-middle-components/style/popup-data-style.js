@@ -54,6 +54,14 @@ export const useStyles = makeStyles((theme) => ({
         display:'flex !important',
         flexDirection:"column !important"
     },
+    history_box:{
+        display:"flex",
+        flexDirection:'column',
+    },
+    history_box_element:{
+        display:'flex',
+        flexDirection:'row',
+    },
     btn:{
         height:'auto !important',
         width:'70px',
@@ -76,5 +84,11 @@ export const useStyles = makeStyles((theme) => ({
         textOverflow:"ellipsis !important",
         overflow:"hidden",
         whiteSpace:"nowrap",
+    },
+    history_typo:{
+        marginTop:'10px !important',
+        '&:not(:last-child)':{
+            marginRight:'50px !important'
+        }
     }
 }));

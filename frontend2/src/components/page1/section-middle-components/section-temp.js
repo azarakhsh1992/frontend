@@ -9,26 +9,32 @@ import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-temp-style";
 import PopupData from "./popup-data";
+import {useEffect} from "react";
+import {GetData} from "../../../services/monitoring-services";
+import {useHistoryTemp} from "../../../fetches/monitoring-fetches";
 
 
-export const SectionTemp = ({TemperatureData}) => {
+export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
 
     const classes = useStyles();
 
     const sectionTempArray = ["top","middle","bottom",""];
+
+
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 {
                     sectionTempArray.map( (value, index,array) => {
                         if(TemperatureData[value]){
+                            // console.log(HistoryTemp && HistoryTemp["top"]);
                             return (
                                 <Box className={clsx(classes.btn_box)} id={index}>
                                     <Box className={clsx(classes.title_box)}>
                                         <Typography className={clsx(classes.title_typo)}>
                                             {value.slice(0,3)}
                                         </Typography>
-                                        <PopupData txt={value}/>
+                                        <PopupData txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
                                         <Typography className={clsx(classes.temp_typo)}>
