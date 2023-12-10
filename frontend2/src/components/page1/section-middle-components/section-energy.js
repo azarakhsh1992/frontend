@@ -9,9 +9,10 @@ import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-energy-style";
 import {useHistoryEnergy} from "../../../fetches/monitoring-fetches";
+import PopupDataEnergy from "./popup-data-energy";
 
 
-export const SectionEnergy = ({EnergyData,DoorQr}) => {
+export const SectionEnergy = ({EnergyData,DoorQr,historyEnergy}) => {
 
     const classes = useStyles();
 
@@ -25,6 +26,9 @@ export const SectionEnergy = ({EnergyData,DoorQr}) => {
                 <Box className={clsx(classes.energie_box)}>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Energie</Typography>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{EnergyData["Energy"]} KWh</Typography>
+                </Box>
+                <Box>
+                    <PopupDataEnergy txt={"history"} HistoryData={(historyEnergy && historyEnergy[""])}/>
                 </Box>
             </Box>
         </Container>

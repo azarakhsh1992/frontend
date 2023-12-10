@@ -17,7 +17,7 @@ import {SectionTemp} from "./section-middle-components/section-temp";
 import {SectionDoor} from "./section-middle-components/section-door";
 import {SectionEnergy} from "./section-middle-components/section-energy";
 import {useEffect} from "react";
-import {useHistoryEnergy, useHistoryTemp} from "../../fetches/monitoring-fetches";
+import {useHistoryDoor, useHistoryEnergy, useHistoryTemp} from "../../fetches/monitoring-fetches";
 
 
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
@@ -32,6 +32,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     const [value_energy, setValue_energy] = React.useState('1');
 	// Histories
     const [historyTemp, loadingTemp, errorTemp] = useHistoryTemp({'qr':DoorQr});
+    const [historyDoor, loadingDoor, errorDoor] = useHistoryDoor({"qr":DoorQr})
     const [historyEnergy, loadingEnergy, errorEnergy] = useHistoryEnergy({"qr":DoorQr})
 
 
@@ -90,7 +91,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             if(MonitoringDatas.Door_Sensors[value]){
                                 return (
                                     <TabPanel value={`${index+1}`}>
-                                        <SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>
+                                        <SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]} historydoor={historyDoor && historyDoor[value]}/>
                                     </TabPanel>);
                             }
                             else {
@@ -121,7 +122,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                                 return (
                                     <TabPanel value={`${index+1}`}>
                                         {/*<SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>*/}
-                                        <SectionEnergy EnergyData={MonitoringDatas.Energy[value]} DoorQr={DoorQr}/>
+                                        <SectionEnergy EnergyData={MonitoringDatas.Energy[value]} DoorQr={DoorQr} historyEnergy={historyEnergy && historyEnergy[value]}/>
                                     </TabPanel>);
                             }
                             else {

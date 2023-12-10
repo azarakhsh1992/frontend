@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-temp-style";
-import PopupData from "./popup-data";
+import PopupDataTemp from "./popup-data-temp";
 import {useEffect} from "react";
 import {GetData} from "../../../services/monitoring-services";
 import {useHistoryTemp} from "../../../fetches/monitoring-fetches";
@@ -34,7 +34,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                                         <Typography className={clsx(classes.title_typo)}>
                                             {value.slice(0,3)}
                                         </Typography>
-                                        <PopupData txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
+                                        <PopupDataTemp txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
                                         <Typography className={clsx(classes.temp_typo)}>

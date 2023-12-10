@@ -8,20 +8,17 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-door-style";
+import PopupDataDoor from "./popup-data-door";
 
 
-export const SectionDoor = ({DoorDatas}) => {
+export const SectionDoor = ({DoorDatas,historydoor}) => {
 
     const classes = useStyles();
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.door_box)}>
-                    <Button variant={"contained"} className={clsx(classes.btn)}>
-                        <Typography>
-                            Status
-                        </Typography>
-                    </Button>
+                    <PopupDataDoor txt={"history"} HistoryData={(historydoor && historydoor)}/>
                     <Typography className={clsx(classes.door_status_typo)} sx={{backgroundColor:`${DoorDatas["Current"] ? "red":"green"} !important`}}>
                         {DoorDatas["Current"] ? "Open":"Close"}
                     </Typography>

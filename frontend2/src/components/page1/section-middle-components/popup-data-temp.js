@@ -19,7 +19,7 @@ import TabContext from "@mui/lab/TabContext";
 import {useEffect, useState} from "react";
 
 
-const PopupData = ({txt,HistoryData}) => {
+const PopupDataTemp = ({txt,HistoryData}) => {
 
     const classes = useStyles();
 
@@ -78,7 +78,6 @@ const PopupData = ({txt,HistoryData}) => {
                                     </TabList>
                                 </Box>
                                 {TempTab.map((value, index)=>{
-                                    console.log(HistoryData && HistoryData[value])
                                     return (
                                         <TabPanel value={`${index}`}>
                                             {HistoryData && Object.keys(HistoryData[value]).map((_value, index, array)=>{
@@ -122,4 +121,4 @@ const PopupData = ({txt,HistoryData}) => {
     );
 }
 
-export default PopupData;
+export default PopupDataTemp;
