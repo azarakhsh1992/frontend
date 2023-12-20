@@ -2,7 +2,7 @@ import React from 'react';
 import {status} from '../utils';
 
 export function SetRequest(userData,token){
-    return fetch('http://127.0.0.1:8000/web/requests/userrequest/',{
+    return fetch('http://127.0.0.1:8000/web/requests/access_request/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export function SetRequest(userData,token){
 }
 
 export function CancelRequest(requestData,token){
-    return fetch('http://127.0.0.1:8000/web/requests/canclerequest/',{
+    return fetch('http://127.0.0.1:8000/web/requests/cancelling_by_frontend/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export function CancelRequest(requestData,token){
 // TODO: correct url
 
 export function CheckRequestButton(requestData,token){
-    return fetch('http://127.0.0.1:8000/web/requests/frontend/',{
+    return fetch('http://127.0.0.1:8000/web/requests/open_door/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
