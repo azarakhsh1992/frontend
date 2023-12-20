@@ -12,6 +12,7 @@ import {useStyles} from "./style/section-top-style";
 //components
 import SectionRequest from "./section-top-components/section-request";
 import RequestDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
+import SectionRequestRejected from "./section-top-components/section-request-rejected";
 
 
 const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD}) => {
@@ -19,9 +20,12 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
     //request data
     const [reqData,setreqData] = useState(null);
     const classes = useStyles();
-    // const handleButton = (event) => {
-    //     SetRequestChecked(true);
-    // }
+
+    const HandleReject = () => {
+        setTimeout(()=>{
+            setreqData("cancel");
+        },3000);
+    }
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
@@ -62,12 +66,20 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                         </Box>
                     </Box>
                 </Fade>
-                <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
-                    <Box className={clsx(classes.top_box_sectiontop)}>
-                        <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked}
-                                        AuthD={AuthD} DoorQr={DoorQr} reqData={reqData} setreqData={setreqData}/>
-                    </Box>
-                </Fade>
+                {reqData && reqData.access === true ?
+                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
+                        <Box className={clsx(classes.top_box_sectiontop)}>
+                            <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked}
+                                            AuthD={AuthD} DoorQr={DoorQr} reqData={reqData} setreqData={setreqData}/>
+                        </Box>
+                    </Fade>
+                    :
+                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
+                        <Box className={clsx(classes.top_box_sectiontop)}>
+                            <SectionRequestRejected RejectedData={reqData} SetRequestChecked={SetRequestChecked}/>
+                        </Box>
+                    </Fade>
+                }
                 <Box>
 
                 </Box>
