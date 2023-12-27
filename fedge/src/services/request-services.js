@@ -2,7 +2,7 @@ import React from 'react';
 import {status} from '../utils';
 
 export function SetRequest(userData){
-    return fetch('http://127.0.0.1:8000/web/request/',{
+    return fetch('https://192.168.137.1:8000/web/request/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ export function SetRequest(userData){
 }
 
 export function CancelRequest(requestData){
-    return fetch('http://127.0.0.1:8000/web/request/',{
+    return fetch('https://192.168.137.1:8000/web/request/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

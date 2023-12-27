@@ -113,7 +113,7 @@ export default function SendTemp() {
 
 
 function Tsend(userData){
-    return fetch('http://127.0.0.1:8000/web/containers/1/setparams/',{
+    return fetch('https://192.168.137.1:8000/web/containers/1/setparams/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
