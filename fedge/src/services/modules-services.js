@@ -2,7 +2,7 @@ import React from 'react';
 import {status} from '../utils';
 
 export function GetTemp(data){
-    return fetch('http://127.0.0.1:8000/web/doors/getdoor/',{
+    return fetch('https://192.168.137.1:8000/web/doors/getdoor/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

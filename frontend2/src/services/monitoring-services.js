@@ -2,7 +2,7 @@ import React from 'react';
 import {status} from '../utils';
 
 export function GetData(qr){
-    return fetch('http://127.0.0.1:8000/web/monitoring/monitoring_current_data/',{
+    return fetch('https://192.168.137.1:8000/web/monitoring/monitoring_current_data/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ export function GetData(qr){
 
 
 export function GetHistoryTemp(qr){
-    return fetch('http://127.0.0.1:8000/web/monitoring/history_temp/',{
+    return fetch('https://192.168.137.1:8000/web/monitoring/history_temp/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ export function GetHistoryTemp(qr){
 }
 
 export function GetHistoryEnergy(qr){
-    return fetch('http://127.0.0.1:8000/web/monitoring/history_energy/',{
+    return fetch('https://192.168.137.1:8000/web/monitoring/history_energy/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export function GetHistoryEnergy(qr){
 }
 
 export function GetHistoryDoor(qr){
-    return fetch('http://127.0.0.1:8000/web/monitoring/history_doorsensor/',{
+    return fetch('https://192.168.137.1:8000/web/monitoring/history_doorsensor/',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
