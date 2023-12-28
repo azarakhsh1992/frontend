@@ -1,7 +1,7 @@
 import React from 'react';
 import {status} from '../utils';
 
-const API = process.env.API;
+const API = process.env.REACT_APP_API;
 
 export function SetRequest(userData,token){
     return fetch(`https://${API}/web/requests/access_request/`,{
