@@ -47,7 +47,11 @@ export default function AutoHeightGrid({MyData}) {
                 {/*    Add a row*/}
                 {/*</Button>*/}
             </Stack>
-            <DataGrid autoHeight {...MyData} rows={filteredArr.slice(0, nbRows)} columns={Dcol} rowHeight={25}/>
+            <DataGrid autoHeight {...MyData} rows={filteredArr.slice(0, nbRows)} columns={Dcol} rowHeight={25} initialState={{
+                ...MyData,
+                pagination: { paginationModel: { pageSize: 5 } },
+            }}
+                      pageSizeOptions={[5, 10, 25]}/>
             {/*<DataGrid autoHeight {...data} rows={data.rows.slice(0, nbRows)} columns={data.columns}/>*/}
         </Box>
     );
