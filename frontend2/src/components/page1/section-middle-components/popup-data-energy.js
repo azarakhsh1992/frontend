@@ -78,7 +78,6 @@ const PopupDataEnergy = ({txt,HistoryData}) => {
                                     </TabList>
                                 </Box>
                                 {EnergyTab.map((value, index)=>{
-                                    console.log(HistoryData && HistoryData[value])
                                     return (
                                         <TabPanel value={`${index}`}>
                                             {HistoryData && Object.keys(HistoryData[value]).map((_value, index, array)=>{
