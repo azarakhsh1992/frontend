@@ -17,6 +17,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import {SectionTemp} from "./section-temp";
 import TabContext from "@mui/lab/TabContext";
 import {useEffect, useState} from "react";
+import AutoHeightGrid from "./datagrid";
 
 
 const PopupDataDoor = ({txt,HistoryData}) => {
@@ -65,13 +66,15 @@ const PopupDataDoor = ({txt,HistoryData}) => {
                             </Button>
                         </Box>
                         <Box className={clsx(classes.modal_box_bot)}>
-                            {HistoryData && Object.keys(HistoryData).map((value, index)=>{
-                                return(
-                                    <Typography>
-                                        {JSON.stringify(HistoryData[value])}
-                                    </Typography>
-                                );
-                            })}
+                            <AutoHeightGrid MyData={HistoryData}/>
+                            {/*{HistoryData && Object.keys(HistoryData).map((value, index)=>{*/}
+                            {/*    return(*/}
+                            {/*        // <Typography>*/}
+                            {/*        //     {JSON.stringify(HistoryData[value])}*/}
+                            {/*        // </Typography>*/}
+                            {/*        <AutoHeightGrid Data={HistoryData[value]}/>*/}
+                            {/*    );*/}
+                            {/*})}*/}
                         </Box>
                     </Box>
                 </Fade>
