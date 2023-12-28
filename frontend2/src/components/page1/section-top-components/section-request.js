@@ -26,20 +26,21 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
     // active request
     const [activeReq,setactiveReq] = useState(null);
     //stop condition
-
     const [fetchResult, setFetchResult] = useState(false);
     const [shouldStopCountdown, setShouldStopCountdown] = useState(false);
     const [isIgnored, setIsIgnored] = useState(false);
+    //active service log
+    const [serviceLog,setServiceLog] = useState(false);
     console.log(Requestchecked);
     useEffect(()=>{
         if(DoorQr !== null){
-            if(Requestchecked === "accept"){
+            if(Requestchecked === "accept"  && !serviceLog){
                 setCount(60);
                 SetRequestchecked("counting");
                 console.log(Requestchecked);
             }
             let interval = setInterval(() => {
-                if(Requestchecked==="counting"){
+                if(Requestchecked==="counting"  && !serviceLog){
                     setCount(prevCount => {
                         // You can add any additional logic here if needed
                         // For example, stopping the countdown when it reaches zero
@@ -68,14 +69,15 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
 // Fetch data every 3 seconds
     useEffect(() => {
         const fetchDataInterval = setInterval(() => {
-            if(Requestchecked === "counting"){
+            if(Requestchecked === "counting"  && !serviceLog){
                 const getData = async () => {
                     const data = await CheckRequestButton({"request":{
                             'id': `${reqData ? reqData.id : null}`,
                         }},AuthD.token);
                     if(data && data.access == true){
-                        SetRequestchecked("onprogress")
+                        SetRequestchecked("onprogress");
                         setCount(0);
+                        setServiceLog(true);
                     }
                 }
                 getData();
@@ -93,7 +95,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
     }, [count, shouldStopCountdown]);
 
     useEffect(()=>{
-        if(Requestchecked==="ignored" && reqData){
+        if(Requestchecked==="ignored" && reqData && !serviceLog){
             setreqData(null);
             console.log(reqData);
             const getData = async () => {
@@ -111,26 +113,37 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
         // setIsIgnored(true);
     }
     return (
-        <Container className={clsx(classes.maincontainer)}>
-            <Box className={clsx(classes.mainbox)}>
-                <Box className={clsx(classes.message_box)}>
-                    <Typography className={clsx(classes.message_typo)}>
-                        {Requestchecked === "onprogress" ? "u can open the door" : "Please wait"}
-                    </Typography>
-                    <CircularProgress/>
+            <Container className={clsx(classes.maincontainer)}>
+                <Box className={clsx(classes.mainbox)}>
+                    {
+                        serviceLog === false ?
+                            <>
+                                <Box className={clsx(classes.message_box)}>
+                                    <Typography className={clsx(classes.message_typo)}>
+                                        {Requestchecked === "onprogress" ? "u can open the door" : "Please wait"}
+                                    </Typography>
+                                    <CircularProgress/>
+                                </Box>
+                                <Box className={clsx(classes.btn_box)}>
+                                    <Button variant={"outlined"} onClick={(event)=>{handleRequest(event)}} className={clsx(classes.btn)}>
+                                        {/*<Typography className={clsx(classes.btn_typo)}>*/}
+                                        {/*    Waiting*/}
+                                        {/*</Typography>*/}
+                                        <Typography>
+                                            {Requestchecked !== "ignored" ? `${count}` : "Request Ignored"}
+                                        </Typography>
+                                    </Button>
+                                </Box>
+                            </>
+                        :
+                        <>
+                            <Typography variant={"h2"}>
+                                Service log
+                            </Typography>
+                        </>
+                    }
                 </Box>
-                <Box className={clsx(classes.btn_box)}>
-                    <Button variant={"outlined"} onClick={(event)=>{handleRequest(event)}} className={clsx(classes.btn)}>
-                        {/*<Typography className={clsx(classes.btn_typo)}>*/}
-                        {/*    Waiting*/}
-                        {/*</Typography>*/}
-                        <Typography>
-                            {Requestchecked !== "ignored" ? `${count}` : "Request Ignored"}
-                        </Typography>
-                    </Button>
-                </Box>
-        	</Box>
-        </Container>
+            </Container>
     );
 }
 

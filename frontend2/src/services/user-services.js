@@ -15,6 +15,7 @@ export function SignUp(userData){
 }
 
 export function auth(credentials){
+    console.log(`${API}`);
     return fetch(`https://${API}/web/authenticate/`,{
         method: 'POST',
         headers: {

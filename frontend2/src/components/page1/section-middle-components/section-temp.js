@@ -37,27 +37,11 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                                         <PopupDataTemp txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
-                                        <Typography className={clsx(classes.temp_typo)}>
-                                            Max
-                                        </Typography>
-                                        <Typography  className={clsx(classes.temp_typo)}>
-                                            {TemperatureData[value]["Max"]}&deg;C
-                                        </Typography>
-                                    </Box>
-                                    <Box className={clsx(classes.btn_box_temp)}>
-                                        <Typography  className={clsx(classes.temp_typo)}>
-                                            Min
-                                        </Typography>
-                                        <Typography  className={clsx(classes.temp_typo)}>
-                                            {TemperatureData[value]["Min"]}&deg;C
-                                        </Typography>
-                                    </Box>
-                                    <Box className={clsx(classes.btn_box_temp)}>
                                         <Typography  className={clsx(classes.temp_typo)}>
                                             Current
                                         </Typography>
                                         <Typography  className={clsx(classes.temp_typo)}>
-                                            {TemperatureData[value]["Current"]}&deg;C
+                                            {TemperatureData[value]["Temperature"]}&deg;C
                                         </Typography>
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
