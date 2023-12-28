@@ -15,14 +15,28 @@ export default function AutoHeightGrid({MyData}) {
         rowLength: 100,
         maxColumns: 6,
     });
-    const Dcol= [{field:'status'},{field:'from'},{field:'to'}];
-    const Drow = Object.keys(MyData).map((value, index) => {
-        return ({
-            id:index,
-            ...MyData[value]
+    const Dcol= [{field:'status', width: '100px' },{field:'from'},{field:'to'}];
+    const TransformData = ()=>{
+        const transformedObj = Object.keys(MyData).map((value, index) => {
+            if(MyData[value]['status']!== "-"){
+                return (
+                    {
+                        id: index + 1,
+                        ...MyData[value]
+                    }
+                )
+                return null;
+            };
         });
-    });
-    console.log(Drow)
+        Object.keys(transformedObj).forEach(key => {
+            if (transformedObj[key] === undefined) {
+                delete transformedObj[key];
+            }
+        });
+        const finalObj = transformedObj.filter(item => item !== undefined);
+        return finalObj;
+    }
+    const filteredArr = TransformData(MyData);
     return (
         <Box sx={{ width: '100%' }}>
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
@@ -33,7 +47,7 @@ export default function AutoHeightGrid({MyData}) {
                 {/*    Add a row*/}
                 {/*</Button>*/}
             </Stack>
-            <DataGrid autoHeight {...MyData} rows={Drow.slice(0, nbRows)} columns={Dcol}/>
+            <DataGrid autoHeight {...MyData} rows={filteredArr.slice(0, nbRows)} columns={Dcol} rowHeight={25}/>
             {/*<DataGrid autoHeight {...data} rows={data.rows.slice(0, nbRows)} columns={data.columns}/>*/}
         </Box>
     );
