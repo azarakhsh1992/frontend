@@ -1,8 +1,10 @@
 import React from 'react';
 import {status} from '../utils';
 
+const API = process.env.API;
+
 export function SetRequest(userData,token){
-    return fetch('https://192.168.137.1:8000/web/requests/access_request/',{
+    return fetch(`https://${API}/web/requests/access_request/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ export function SetRequest(userData,token){
 }
 
 export function CancelRequest(requestData,token){
-    return fetch('https://192.168.137.1:8000/web/requests/cancelling_by_frontend/',{
+    return fetch(`https://${API}/web/requests/cancelling_by_frontend/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -28,7 +30,7 @@ export function CancelRequest(requestData,token){
 // TODO: correct url
 
 export function CheckRequestButton(requestData,token){
-    return fetch('https://192.168.137.1:8000/web/requests/open_door/',{
+    return fetch(`https://${API}/web/requests/open_door/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

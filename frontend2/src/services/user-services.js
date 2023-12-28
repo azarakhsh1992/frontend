@@ -1,8 +1,10 @@
 import React from 'react';
 import {status} from '../utils';
 
+const API = process.env.API;
+
 export function SignUp(userData){
-    return fetch('https://192.168.137.1:8000/web/users/',{
+    return fetch(`https://${API}/web/users/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -13,7 +15,7 @@ export function SignUp(userData){
 }
 
 export function auth(credentials){
-    return fetch('https://192.168.137.1:8000/web/authenticate/',{
+    return fetch(`https://${API}/web/authenticate/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -35,7 +37,7 @@ export function auth(credentials){
 // }
 
 export function ProfileSet(userData){
-    return fetch('https://192.168.137.1:8000/web/users/profiles/',{
+    return fetch(`https://${API}/web/users/profiles/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

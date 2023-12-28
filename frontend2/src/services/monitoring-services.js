@@ -1,8 +1,10 @@
 import React from 'react';
 import {status} from '../utils';
 
+const API = process.env.API;
+
 export function GetData(qr){
-    return fetch('https://192.168.137.1:8000/web/monitoring/monitoring_current_data/',{
+    return fetch(`https://${API}/web/monitoring/monitoring_current_data/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -14,7 +16,7 @@ export function GetData(qr){
 
 
 export function GetHistoryTemp(qr){
-    return fetch('https://192.168.137.1:8000/web/monitoring/history_temp/',{
+    return fetch(`https://${API}/web/monitoring/history_temp/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +27,7 @@ export function GetHistoryTemp(qr){
 }
 
 export function GetHistoryEnergy(qr){
-    return fetch('https://192.168.137.1:8000/web/monitoring/history_energy/',{
+    return fetch(`https://${API}/web/monitoring/history_energy/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +38,7 @@ export function GetHistoryEnergy(qr){
 }
 
 export function GetHistoryDoor(qr){
-    return fetch('https://192.168.137.1:8000/web/monitoring/history_doorsensor/',{
+    return fetch(`https://${API}/web/monitoring/history_doorsensor/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
