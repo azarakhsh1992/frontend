@@ -20,11 +20,11 @@ export const SectionEnergy = ({EnergyData,DoorQr,historyEnergy}) => {
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.strom_box)}>
-                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Strom</Typography>
+                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Power</Typography>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >{EnergyData["Power"]} KW</Typography>
                 </Box>
                 <Box className={clsx(classes.energie_box)}>
-                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Energie</Typography>
+                    <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Energy</Typography>
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{EnergyData["Energy"]} KWh</Typography>
                 </Box>
                 <Box>
