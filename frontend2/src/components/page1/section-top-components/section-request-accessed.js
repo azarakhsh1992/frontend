@@ -13,13 +13,26 @@ import TextField from "@mui/material/TextField";
 
 
 const ArrayAccess = ['None','message 1','message 2','message 3','other']
+const ObjectAccess = {
+    'None':'NOTHING',
+    'message 1':'MSG 1',
+    'message 2':'MSG 2',
+    'message 3':'MSG 3',
+    'other':'Other'
+}
 const SectionRequestAccessed = () => {
 
     const classes = useStyles();
     const [Message, setMessage] = React.useState('');
+    const [Service,setService] = useState('');
     const handleChange = (event) => {
         setMessage(event.target.value);
+        setService(ObjectAccess[event.target.value]);
     };
+
+    const handleButton = (event)=>{
+        console.log(Service);
+    }
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
@@ -34,15 +47,20 @@ const SectionRequestAccessed = () => {
                         label="Service Log"
                     >
                         {
-                            ArrayAccess.map((value, index) => {
+                            Object.keys(ObjectAccess).map((value, index) => {
                                 return (
-                                    <MenuItem value={index}>{ArrayAccess[index]}</MenuItem>
+                                    <MenuItem value={value}>{value}</MenuItem>
                                 );
                             })
                         }
                     </Select>
                 </FormControl>
-                {Message === 4 ? <TextField placeholder={"Please Write Service log"} multiline minRows={5}  sx={{minWidth:'300px'}}></TextField> : <></>}
+                {Message === 'other' ? <TextField placeholder={"Please Write Service log"} multiline minRows={5}  sx={{minWidth:'300px'}}></TextField> : <></>}
+                <Button variant={'outlined'} sx={{marginTop:'10px !important'}} onClick={(event)=>{handleButton(event);}}>
+                    <Typography>
+                        Submit
+                    </Typography>
+                </Button>
             </Box>
         </Container>
     );
