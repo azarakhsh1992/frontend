@@ -17,6 +17,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import {SectionTemp} from "./section-temp";
 import TabContext from "@mui/lab/TabContext";
 import {useEffect, useState} from "react";
+import DataTableEnergy from "./datatable-energy";
 
 
 const PopupDataEnergy = ({txt,HistoryData}) => {
@@ -36,7 +37,26 @@ const PopupDataEnergy = ({txt,HistoryData}) => {
     const handleChange_tmp = (event, newValue) => {
         setValue_tmp(newValue);
     };
-
+    const EnergyTableDatas = (data) => {
+        if(data["Maximum Power"] !== null){
+            const customData ={
+                "MaxPow":{
+                    "Maximum Power":data["Maximum Power"],
+                    "last time at maximum power":data["last time at maximum power"]
+                },
+                "MinPow":{
+                    "Minimum Power":data["Minimum Power"],
+                    "last time at minimum power":data["last time at minimum power"]
+                },
+                "Avg":{
+                    "Average Power":data["Average Power"],
+                    "Average Energy":data["Average Energy"]
+                }
+            };
+            return customData;
+        }
+        return "not_Defined";
+    }
 
     return (
         <div>
@@ -78,39 +98,22 @@ const PopupDataEnergy = ({txt,HistoryData}) => {
                                     </TabList>
                                 </Box>
                                 {EnergyTab.map((value, index)=>{
+
+                                    let _data;
+                                    if(HistoryData){
+                                        _data = EnergyTableDatas(HistoryData[value]);
+                                        console.log(_data);
+                                    }
+
                                     return (
                                         <TabPanel value={`${index}`}>
-                                            {HistoryData && Object.keys(HistoryData[value]).map((_value, index, array)=>{
-                                                return (
-                                                    <Box className={clsx(classes.history_box)}>
-                                                        <Box className={clsx(classes.history_box_element)}>
-                                                            <Typography className={clsx(classes.history_typo)}>
-                                                                {HistoryData ? _value :'not defined'}:
-                                                            </Typography>
-                                                            <Typography className={clsx(classes.history_typo)}>
-                                                                {HistoryData ? HistoryData[value][_value] :'not defined'}
-                                                            </Typography>
-                                                        </Box>
-                                                    </Box>
-                                                );
-                                            })}
-                                            {/*{*/}
-                                            {/*    HistoryData[value] &&*/}
-                                            {/*    Object.keys(HistoryData[value]).map((_value, index) => {*/}
-                                            {/*        if(HistoryData[value]?.[_value]){*/}
-                                            {/*            return (*/}
-                                            {/*                <>*/}
-                                            {/*                    <Typography>{_value}</Typography>*/}
-                                            {/*                    /!* Optional: <Typography>{HistoryData[value][_value]}</Typography> *!/*/}
-                                            {/*                </>*/}
-                                            {/*            );*/}
-                                            {/*        }*/}
-                                            {/*    })*/}
-                                            {/*}*/}
-
+                                            <Box className={clsx(classes.history_box)}>
+                                                <Box className={clsx(classes.history_box_element)}>
+                                                    {HistoryData && <DataTableEnergy Data={_data}/>}
+                                                </Box>
+                                            </Box>
                                         </TabPanel>
                                     );
-
                                 })}
                             </TabContext>
                         </Box>
