@@ -20,13 +20,15 @@ export const useStyles = makeStyles((theme) => ({
         height:'100px !important',
         backgroundColor:`${theme.palette.tertiary.blue}`,
         alignItems:'center !important',
+        justifyContent:'center !important',
         borderRadius:'30px !important',
     },
     btn_box:{
         display:'flex',
-        flexDirection:'column',
+        flexDirection:'row',
         width:'100% !important',
         alignItems:'center !important',
+        justifyContent: 'center !important'
     },
     btn:{
         height:'auto !important',
@@ -37,6 +39,9 @@ export const useStyles = makeStyles((theme) => ({
         margin:'10px 0 !important',
         '&:focus':{
             backgroundColor: `rgba(0,0,0,.8) !important`,
+        },
+        '&:not(:first-child)':{
+            marginLeft:'40px !important'
         }
     },
     btn_typo:{

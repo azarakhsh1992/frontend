@@ -120,18 +120,18 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             <>
                                 <Box className={clsx(classes.message_box)}>
                                     <Typography className={clsx(classes.message_typo)}>
-                                        {Requestchecked === "onprogress" ? "u can open the door" : "Please wait"}
+                                        {Requestchecked === "onprogress" ? "u can open the door" : "Access granted \n Please Push the Button"}
                                     </Typography>
                                     <CircularProgress/>
                                 </Box>
                                 <Box className={clsx(classes.btn_box)}>
-                                    <Button variant={"outlined"} onClick={(event)=>{handleRequest(event)}} className={clsx(classes.btn)}>
-                                        {/*<Typography className={clsx(classes.btn_typo)}>*/}
-                                        {/*    Waiting*/}
-                                        {/*</Typography>*/}
+                                    <Button variant={"outlined"} className={clsx(classes.btn)}>
                                         <Typography>
                                             {Requestchecked !== "ignored" ? `${count}` : "Request Ignored"}
                                         </Typography>
+                                    </Button>
+                                    <Button variant={"outlined"} className={clsx(classes.btn)} onClick={(event)=>{handleRequest(event)}}>
+                                        <Typography>Cancel</Typography>
                                     </Button>
                                 </Box>
                             </>
