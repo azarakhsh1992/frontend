@@ -13,6 +13,7 @@ import {useStyles} from "./style/section-request-style";
 import AlertDialogSlide from "./section-request-components/request-dialogbox";
 import {CircularProgress} from "@mui/material";
 import {CancelRequest, CheckRequestButton, SetRequest} from "../../../services/request-services";
+import SectionRequestAccessed from "./section-request-accessed";
 
 
 
@@ -151,9 +152,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             </>
                         :
                         <>
-                            <Typography variant={"h2"}>
-                                Service log
-                            </Typography>
+                            <SectionRequestAccessed/>
                         </>
                     }
                 </Box>
