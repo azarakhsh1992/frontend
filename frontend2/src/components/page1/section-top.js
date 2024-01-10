@@ -40,10 +40,6 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                                 <Typography className={clsx(classes.btn_typo)}>Cabinet Overview</Typography>
                             </Button>
 
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>My Cabinet</Typography>
-                            </Button>
-
                             <Button variant={"contained"} className={clsx(classes.btn,classes.btn_logout)}>
                                 <Typography className={clsx(classes.btn_typo)}>Logout</Typography>
                             </Button>
@@ -51,6 +47,11 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                         <Box className={clsx(classes.rightbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>Cabinet XY Hall</Typography>
+                            </Button>
+
+
+                            <Button variant={"contained"} className={clsx(classes.btn)}>
+                                <Typography className={clsx(classes.btn_typo)}>My Cabinet</Typography>
                             </Button>
 
                             {/*<Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}*/}
