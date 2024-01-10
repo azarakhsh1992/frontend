@@ -120,10 +120,28 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             <>
                                 <Box className={clsx(classes.message_box)}>
                                     <Typography className={clsx(classes.message_typo)}>
-                                        {Requestchecked === "onprogress" ? "u can open the door" : `Access granted \n Please Push the Button ${count}`}
+                                        {Requestchecked === "onprogress" ? "u can open the door" : `Access granted \n Please Push the Button `}
                                     </Typography>
                                     {/*<Typography>${count}</Typography>*/}
+                                    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
                                     <CircularProgress/>
+                                    <Box
+                                        sx={{
+                                            top: 0,
+                                            left: 0,
+                                            bottom: 0,
+                                            right: 0,
+                                            position: 'absolute',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        <Typography variant="caption" component="div" color="white" fontWeight={'bold'} fontSize={'medium'}>
+                                            {count}
+                                        </Typography>
+                                    </Box>
+                                </Box>
                                 </Box>
                                 <Box className={clsx(classes.btn_box)}>
                                     <Button variant={"outlined"} className={clsx(classes.btn)} onClick={(event)=>{handleRequest(event)}}>
