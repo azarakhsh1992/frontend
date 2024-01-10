@@ -40,29 +40,32 @@ const PopupDataTemp = ({txt,HistoryData}) => {
     };
 
     const TempTableDatas = (data) => {
-        const customData =data && {
-            "MaxTemp":{
-                "Maximum temperature":data["Maximum temperature"],
-                "last time at maximum temperature":data["last time at maximum temperature"]
-            },
-            "MinTemp":{
-                "Minimum temperature":data["Minimum temperature"],
-                "last time at minimum temperature":data["last time at minimum temperature"]
-            },
-            "MaxHum":{
-                "Maximum humidity":data["Maximum humidity"],
-                "last time at maximum humidity":data["last time at maximum humidity"]
-            },
-            "MinHum":{
-                "Minimum humidity":data["Minimum humidity"],
-                "last time at minimum humidity":data["last time at minimum humidity"]
-            },
-            "Avg":{
-                "Average temperature":data["Average temperature"],
-                "Average humidity":data["Average humidity"]
-            }
-        };
-        return customData;
+        if(data["Maximum temperature"] !== null){
+            const customData ={
+                "MaxTemp":{
+                    "Maximum temperature":data["Maximum temperature"],
+                    "last time at maximum temperature":data["last time at maximum temperature"]
+                },
+                "MinTemp":{
+                    "Minimum temperature":data["Minimum temperature"],
+                    "last time at minimum temperature":data["last time at minimum temperature"]
+                },
+                "MaxHum":{
+                    "Maximum humidity":data["Maximum humidity"],
+                    "last time at maximum humidity":data["last time at maximum humidity"]
+                },
+                "MinHum":{
+                    "Minimum humidity":data["Minimum humidity"],
+                    "last time at minimum humidity":data["last time at minimum humidity"]
+                },
+                "Avg":{
+                    "Average temperature":data["Average temperature"],
+                    "Average humidity":data["Average humidity"]
+                }
+            };
+            return customData;
+        }
+        return "not_Defined";
     }
 
     return (
@@ -106,12 +109,16 @@ const PopupDataTemp = ({txt,HistoryData}) => {
                                 </Box>
                                 {TempTab.map((value, index)=>{
 
-                                    // setTableData(HistoryData[value] && TempTableDatas(HistoryData[value] && HistoryData[value]));
+                                    let _data;
+                                    if(HistoryData){
+                                        _data = TempTableDatas(HistoryData[value]);
+                                        console.log(_data);
+                                    }
                                     return (
                                         <TabPanel value={`${index}`}>
                                             <Box className={clsx(classes.history_box)}>
                                                 <Box className={clsx(classes.history_box_element)}>
-                                                    {/*<DataTableTemp Data={TableData && TableData}/>*/}
+                                                    {HistoryData && <DataTableTemp Data={_data}/>}
                                                 </Box>
                                             </Box>
                                         </TabPanel>
