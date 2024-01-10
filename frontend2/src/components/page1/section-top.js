@@ -51,7 +51,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
 
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>My Cabinet</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>My Cabinets</Typography>
                             </Button>
 
                             {/*<Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}*/}
