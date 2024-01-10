@@ -33,36 +33,33 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>Qr-Code Scannen</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
                             </Button>
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>Schrankubersicht</Typography>
-                            </Button>
-
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>meine Schranke</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>Cabinet Overview</Typography>
                             </Button>
 
                             <Button variant={"contained"} className={clsx(classes.btn,classes.btn_logout)}>
-                                <Typography className={clsx(classes.btn_typo)}>Ausloggen</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>Logout</Typography>
                             </Button>
                         </Box>
                         <Box className={clsx(classes.rightbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>Schrank XY Halle 16</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>Cabinet XY Hall</Typography>
+                            </Button>
+
+
+                            <Button variant={"contained"} className={clsx(classes.btn)}>
+                                <Typography className={clsx(classes.btn_typo)}>My Cabinets</Typography>
                             </Button>
 
                             {/*<Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}*/}
                             {/*	disabled={QrScanned}>*/}
                             {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
                             {/*</Button>*/}
-                            <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Zugang anfordem"} defclass={classes}
+                            <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Request Access"} defclass={classes}
                             	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr} setreqData={setreqData}/>
-
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>HomePage</Typography>
-                            </Button>
                         </Box>
                     </Box>
                 </Fade>
