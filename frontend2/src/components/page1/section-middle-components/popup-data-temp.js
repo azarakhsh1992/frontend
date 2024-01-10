@@ -123,7 +123,6 @@ const PopupDataTemp = ({txt,HistoryData}) => {
                                             </Box>
                                         </TabPanel>
                                     );
-
                                 })}
                             </TabContext>
                         </Box>
