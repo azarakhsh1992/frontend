@@ -50,6 +50,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
             <Box className={clsx(classes.mainbox)}>
 				{/*TEMP START*/}
                 <Box className={clsx(classes.temp_box)}>
+                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Temperature</Typography>
                     <TabContext value={value_tmp}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_tmp} aria-label="lab API tabs example">
@@ -73,11 +74,11 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                 {/*TEMP END*/}
                 {/*DOOR START*/}
                 <Box className={clsx(classes.door_box)}>
+                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Doors</Typography>
                     <TabContext value={value_door}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_door} aria-label="lab API tabs example">
                                 {DoorTab.map((value, index) => {
-                                    // console.log(MonitoringDatas.Door_Sensors);
                                     if(MonitoringDatas.Door_Sensors[value]){
                                         return (<Tab label={value} value={`${index+1}`} />);
                                     }
@@ -103,6 +104,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                 {/*DOOR END*/}
                 {/*ENERGY START*/}
                 <Box className={clsx(classes.energy_box)}>
+                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Energy</Typography>
                     <TabContext value={value_energy}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_energy} aria-label="lab API tabs example">
