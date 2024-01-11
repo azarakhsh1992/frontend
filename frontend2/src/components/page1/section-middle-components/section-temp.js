@@ -18,7 +18,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
 
     const classes = useStyles();
 
-    const sectionTempArray = ["top","middle","bottom",""];
+    const sectionTempArray = ["Top_section","Middle_section","Bottom_section",""];
 
 
     return (
@@ -38,10 +38,10 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
                                         <Typography  className={clsx(classes.temp_typo)}>
-                                            Current
+                                            Temperature
                                         </Typography>
                                         <Typography  className={clsx(classes.temp_typo)}>
-                                            {TemperatureData[value]["Temperature"]}&deg;C
+                                            {TemperatureData[value]["Temperature"]}
                                         </Typography>
                                     </Box>
                                     <Box className={clsx(classes.btn_box_temp)}>
@@ -49,7 +49,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                                             Humidity
                                         </Typography>
                                         <Typography  className={clsx(classes.temp_typo)}>
-                                            {TemperatureData[value]["Humidity"]} %RH
+                                            {TemperatureData[value]["Humidity"]}
                                         </Typography>
                                     </Box>
                                 </Box>
