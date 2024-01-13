@@ -15,7 +15,7 @@ export default function AutoHeightGrid({MyData}) {
         rowLength: 100,
         maxColumns: 6,
     });
-    const Dcol= [{field:'status', width: '100px' },{field:'from'},{field:'to'}];
+    const Dcol= [{field:'status', width: 'auto !important' },{field:'from', width: 'auto !important' },{field:'to', width: 'auto !important' }];
     const TransformData = ()=>{
         const transformedObj = Object.keys(MyData).map((value, index) => {
             if(MyData[value]['status']!== "-"){

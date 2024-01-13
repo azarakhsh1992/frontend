@@ -74,8 +74,9 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     btn_modal_close:{
-        margin:'10px 0 0 220px !important',
-        width:'auto !important'
+        margin:'0 0 0 auto !important',
+        width:'auto !important',
+        justifySelf:'right !important'
     },
     btn_typo:{
         textTransform:'none !important',

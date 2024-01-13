@@ -15,7 +15,7 @@ import RequestDialogSlide from "./section-top-components/section-request-compone
 import SectionRequestRejected from "./section-top-components/section-request-rejected";
 
 
-const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD}) => {
+const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData}) => {
 
     //request data
     const [reqData,setreqData] = useState(null);
@@ -54,12 +54,9 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                             <Button variant={"contained"} className={clsx(classes.btn,classes.btn_logout)}>
                                 <Typography className={clsx(classes.btn_typo)}>Logout</Typography>
                             </Button>
-                            {/*<Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=> {handleButton(event)}}*/}
-                            {/*	disabled={QrScanned}>*/}
-                            {/*    <Typography className={clsx(classes.btn_typo)}>Zugang anfordem</Typography>*/}
-                            {/*</Button>*/}
+
                             <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Request Access"} defclass={classes}
-                            	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr} setreqData={setreqData}/>
+                            	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr} setreqData={setreqData} ScannedDoor={MonitoringData && MonitoringData.scanned_door}/>
                         </Box>
                     </Box>
                 </Fade>
