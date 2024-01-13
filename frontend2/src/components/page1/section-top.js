@@ -61,14 +61,14 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                     </Box>
                 </Fade>
                 {reqData && reqData.access === true ?
-                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
+                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored")&&(RequestChecked !== "completed"))} timeout={300}>
                         <Box className={clsx(classes.top_box_sectiontop)}>
                             <SectionRequest SetRequestchecked={SetRequestChecked} Requestchecked={RequestChecked}
                                             AuthD={AuthD} DoorQr={DoorQr} reqData={reqData} setreqData={setreqData}/>
                         </Box>
                     </Fade>
                     :
-                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored"))} timeout={300}>
+                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored")&&(RequestChecked !== "completed"))} timeout={300}>
                         <Box className={clsx(classes.top_box_sectiontop)}>
                             <SectionRequestRejected RejectedData={reqData} SetRequestChecked={SetRequestChecked}/>
                         </Box>

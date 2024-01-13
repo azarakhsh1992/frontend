@@ -112,7 +112,6 @@ const PopupDataTemp = ({txt,HistoryData}) => {
                                     let _data;
                                     if(HistoryData){
                                         _data = TempTableDatas(HistoryData[value]);
-                                        console.log(_data);
                                     }
                                     return (
                                         <TabPanel value={`${index}`}>

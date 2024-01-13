@@ -102,7 +102,6 @@ const PopupDataEnergy = ({txt,HistoryData}) => {
                                     let _data;
                                     if(HistoryData){
                                         _data = EnergyTableDatas(HistoryData[value]);
-                                        console.log(_data);
                                     }
 
                                     return (

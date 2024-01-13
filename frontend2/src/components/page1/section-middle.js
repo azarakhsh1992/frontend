@@ -112,7 +112,6 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_energy} aria-label="lab API tabs example">
                                 {Object.keys(MonitoringDatas.Energy).map((value, index) => {
-                                    // console.log(MonitoringDatas.Door_Sensors);
                                     if(MonitoringDatas.Energy[value]){
                                         return (<Tab label={value} value={`${index+1}`} />);
                                     }

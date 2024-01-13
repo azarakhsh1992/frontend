@@ -10,6 +10,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from "@mui/material/TextField";
+import {ServiceLog} from "../../../services/request-services";
+import {useAuth} from "../../../hooks/useAuth";
+import {enqueueSnackbar} from "notistack";
 
 
 const ArrayAccess = ['None','message 1','message 2','message 3','other']
@@ -20,18 +23,39 @@ const ObjectAccess = {
     'message 3':'MSG 3',
     'other':'Other'
 }
-const SectionRequestAccessed = () => {
+const SectionRequestAccessed = ({reqData,SetRequestchecked}) => {
 
     const classes = useStyles();
     const [Message, setMessage] = React.useState('');
     const [Service,setService] = useState('');
+    const [TextfieldMsg,setTextfieldMsg] = useState('');
+    const {AuthD,setAuth} = useAuth();
     const handleChange = (event) => {
         setMessage(event.target.value);
         setService(ObjectAccess[event.target.value]);
     };
 
-    const handleButton = (event)=>{
-        console.log(Service);
+    const handleButton = async (event)=>{
+        const serviceLog = () => {
+            let _serviceMsg = '';
+            if(Message && (Message === 'other')){
+                _serviceMsg = TextfieldMsg;
+                return _serviceMsg;
+            }
+            _serviceMsg = Message;
+            return _serviceMsg;
+        }
+        const ServiceMsg = serviceLog();
+        const ReqId = reqData.id;
+        const UserId = AuthD.user["id"];
+        const datas = await ServiceLog({'request':ReqId,"service":ServiceMsg,"user_id":UserId});
+        if(datas){
+            enqueueSnackbar("Request Service Log Submitted", {variant:'success',style:{borderRadius:'17px',},anchorOrigin:{
+                    vertical:"top",
+                    horizontal:"right",
+                }});
+            SetRequestchecked("completed");
+        }
     }
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -55,7 +79,7 @@ const SectionRequestAccessed = () => {
                         }
                     </Select>
                 </FormControl>
-                {Message === 'other' ? <TextField placeholder={"Please Write Service log"} multiline minRows={5}  sx={{minWidth:'300px'}}></TextField> : <></>}
+                {Message === 'other' ? <TextField placeholder={"Please Write Service log"} multiline minRows={5}  sx={{minWidth:'300px'}} onChange={(event,value)=>{setTextfieldMsg(event.target.value);}}></TextField> : <></>}
                 <Button variant={'outlined'} sx={{marginTop:'10px !important'}} onClick={(event)=>{handleButton(event);}}>
                     <Typography>
                         Submit

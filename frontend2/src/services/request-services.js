@@ -40,3 +40,14 @@ export function CheckRequestButton(requestData,token){
     }).then(status).catch(e => {console.log(e);
     })
 }
+
+export function ServiceLog(servicelog,token){
+    return fetch(`https://${API}/web/requests/userservice/`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(servicelog)
+    }).then(status).catch(e => {console.log(e);
+    })
+}

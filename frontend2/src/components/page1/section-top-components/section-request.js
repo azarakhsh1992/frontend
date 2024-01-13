@@ -32,7 +32,6 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
     const [isIgnored, setIsIgnored] = useState(false);
     //active service log
     const [serviceLog,setServiceLog] = useState(false);
-    console.log(Requestchecked);
     useEffect(()=>{
         if(DoorQr !== null){
             if(Requestchecked === "accept"  && !serviceLog){
@@ -152,7 +151,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             </>
                         :
                         <>
-                            <SectionRequestAccessed/>
+                            <SectionRequestAccessed reqData={reqData} SetRequestchecked={SetRequestchecked}/>
                         </>
                     }
                 </Box>

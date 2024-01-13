@@ -37,7 +37,6 @@ export default function AutoHeightGrid({MyData}) {
         return finalObj;
     }
     const filteredArr = TransformData(MyData);
-    console.log(data,data.initialState,MyData);
     return (
         <Box sx={{ width: '100%' }}>
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>

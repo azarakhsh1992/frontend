@@ -42,7 +42,7 @@ const SectionMain = () => {
     }
 
     useEffect(() => {
-        setInterval(()=>{
+        const fetchInterval = setInterval(()=>{
             const datas = async ()=>{
                 if(QrScanned){
                     const _datas = await GetData({'qr':QrScanned});
@@ -56,7 +56,10 @@ const SectionMain = () => {
             }
             datas();
 
-        },myInterval)
+        },myInterval);
+        if(QrScanned === null){
+            clearInterval(fetchInterval);
+        }
     }, [QrScanned]);
 
 
