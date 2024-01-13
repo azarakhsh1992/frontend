@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {useStyles} from "./style/section-main-style";
 import QrReaderd from "../qrcode/ReactQrReader";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAuth} from "../../hooks/useAuth";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -38,6 +38,24 @@ const SectionMain = () => {
         }
     }
 
+    useEffect(() => {
+        setInterval(()=>{
+            const datas = async ()=>{
+                if(QrScanned){
+                    const _datas = await GetData({'qr':QrScanned});
+                    if(_datas !== undefined){
+                        SetMonitoringData(_datas);
+                    }
+                    else {
+                        SetMonitoringData(null);
+                    }
+                }
+            }
+            datas();
+
+        },3500)
+    }, [QrScanned]);
+
 
     const classes = useStyles();
     return (
@@ -60,7 +78,9 @@ const SectionMain = () => {
                                 <SectionTop QrScanned={(MonitoringData === null ? true : false)}
                                             RequestChecked={RequestChecked}
                                             SetRequestChecked={SetRequestChecked} setQr={SetQrScanned} AuthD={AuthD}
-                                            DoorQr={QrScanned}/>
+                                            DoorQr={QrScanned}
+                                            MonitoringData={MonitoringData && MonitoringData}
+                                />
                             </Box>
                             {
                                 (MonitoringData !== null) ?

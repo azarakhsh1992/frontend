@@ -18,7 +18,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
 
     const classes = useStyles();
 
-    const sectionTempArray = ["top","middle","bottom",""];
+    const sectionTempArray = ["Top_section","Middle_section","Bottom_section",""];
 
 
     return (
@@ -32,7 +32,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                                 <Box className={clsx(classes.btn_box)} id={index}>
                                     <Box className={clsx(classes.title_box)}>
                                         <Typography className={clsx(classes.title_typo)}>
-                                            {value.slice(0,3)}
+                                            {value}
                                         </Typography>
                                         <PopupDataTemp txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
                                     </Box>

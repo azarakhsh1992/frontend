@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="down" timeout={2000} ref={ref} {...props} />;
 });
 
-export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defclass,onClick,setQr,DoorQr,AuthD,setreqData}) {
+export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defclass,onClick,setQr,DoorQr,AuthD,setreqData,ScannedDoor}) {
 
     const [open, setOpen] = React.useState(false);
     const [requestState,SetrequestState] = React.useState(null);
@@ -61,7 +61,7 @@ export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defc
                 <DialogTitle>{"Requesting Access"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Are you sure u want open felandoor
+                        Are you sure u want open ,Hall:{ScannedDoor && ScannedDoor.Hall} ,Rack:{ScannedDoor && ScannedDoor.Rack} ,Door:{ScannedDoor && ScannedDoor.Door} ?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
