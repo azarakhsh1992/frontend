@@ -48,6 +48,9 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
+                <Box sx={{justifyContent:'center !important',alignItems:'center !important',width:'100% !important'}}>
+                    <Typography variant={'h4'} textAlign={'center !important'} marginBottom={'5px !important'}>Cabinet: {MonitoringDatas.scanned_door["Cabinet"]}, in Hall:{MonitoringDatas.scanned_door["Hall"]}</Typography>
+                </Box>
 				{/*TEMP START*/}
                 <Box className={clsx(classes.temp_box)}>
                     <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Temperature</Typography>
