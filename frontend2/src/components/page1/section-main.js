@@ -23,6 +23,9 @@ const SectionMain = () => {
 // authentication
     const {AuthD,setAuth} = useAuth();
 
+    // interval for fetching monitoring data
+    const myInterval = 3500;
+
 // use textfield instead qr
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -53,7 +56,7 @@ const SectionMain = () => {
             }
             datas();
 
-        },3500)
+        },myInterval)
     }, [QrScanned]);
 
 
