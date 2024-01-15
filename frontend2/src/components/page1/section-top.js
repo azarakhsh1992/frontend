@@ -13,12 +13,15 @@ import {useStyles} from "./style/section-top-style";
 import SectionRequest from "./section-top-components/section-request";
 import RequestDialogSlide from "./section-top-components/section-request-components/request-dialogbox";
 import SectionRequestRejected from "./section-top-components/section-request-rejected";
+import Mycabinet from "./section-top-components/mycabinet";
 
 
 const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData}) => {
 
     //request data
     const [reqData,setreqData] = useState(null);
+    const [myCabinetopen,setMyCabinetOpen] = useState(false);
+
     const classes = useStyles();
 
     const HandleReject = () => {
@@ -36,10 +39,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                                 <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
                             </Button>
 
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>My Cabinets</Typography>
-                            </Button>
-
+                            <Mycabinet />
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
                                 <Typography className={clsx(classes.btn_typo)}>Cabinet XY Hall</Typography>
