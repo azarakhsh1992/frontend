@@ -15,6 +15,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {auth, SignUp} from "../../services/user-services";
 import {useAuth} from "../../hooks/useAuth";
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -36,6 +37,8 @@ const defaultTheme = createTheme();
 export default function SigningUp() {
 
     const {AuthD,setAuth} = useAuth();
+    const history = useNavigate();
+
     const passMatch = (pass1,pass2) => {
         return (pass1 === pass2);
     }
@@ -51,6 +54,7 @@ export default function SigningUp() {
             if(regData){
                 const datas = await auth({username, password});
                 setAuth(datas);
+                history('/sectionmain');
             }
         }else{
             console.log('password not match')
