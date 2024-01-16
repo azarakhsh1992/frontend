@@ -47,10 +47,12 @@ export default function SigningUp() {
         const data = new FormData(event.currentTarget);
         const username = data.get('username');
         const email = data.get('email');
+        const first_name = data.get('first_name');
+        const last_name = data.get('last_name');
         const password = data.get('password');
         const password2 = data.get('password2');
         if(passMatch(password,password2)){
-            const regData = await SignUp({username:username,email:email,password:password});
+            const regData = await SignUp({username:username,email:email,first_name:first_name,last_name:last_name,password:password});
             if(regData){
                 const datas = await auth({username, password});
                 setAuth(datas);
@@ -86,7 +88,7 @@ export default function SigningUp() {
                                     required
                                     fullWidth
                                     id="username"
-                                    label="UserName"
+                                    label="Username"
                                     name="username"
                                 />
                             </Grid>
@@ -98,6 +100,24 @@ export default function SigningUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="first_name"
+                                    label="First Name"
+                                    name="first_name"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="last_name"
+                                    label="Last Name"
+                                    name="last_name"
                                 />
                             </Grid>
                             <Grid item xs={12}>
