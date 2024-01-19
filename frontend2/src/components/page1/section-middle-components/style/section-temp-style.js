@@ -47,11 +47,13 @@ export const useStyles = makeStyles((theme) => ({
     },
     btn_typo:{
         textTransform:'none !important',
+        fontWeight:'bold !important'
     },
     temp_typo:{
         textOverflow:"ellipsis !important",
         overflow:"hidden",
         whiteSpace:"nowrap",
+        fontWeight:'bold !important'
     },
     title_typo:{
         height:'30px !important',
@@ -59,11 +61,12 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent:'center !important',
         alignItems:'center !important',
         marginRight:'5px !important',
-        marginLeft:'0px !important'
+        marginLeft:'0px !important',
+        fontWeight:'bold !important'
     },
     title_key:{
         borderRadius:'20px !important',
-        minWidth:'80px !important',
+        minWidth:'85px !important',
         border:`2px solid ${theme.palette.volkswagen.blue} !important`,
     }
 }));
