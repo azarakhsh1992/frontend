@@ -16,7 +16,7 @@ import SectionRequestRejected from "./section-top-components/section-request-rej
 import Mycabinet from "./section-top-components/mycabinet";
 
 
-const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData}) => {
+const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData,setHomePageState}) => {
 
     //request data
     const [reqData,setreqData] = useState(null);
@@ -29,13 +29,17 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
             setreqData("cancel");
         },3000);
     }
+
+    const HandleHomePage = () => {
+        setHomePageState(true);
+    }
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Fade in={((RequestChecked !== "accept")&&(RequestChecked!=="counting")&&(RequestChecked!=="onprogress"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
+                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={HandleHomePage}>
                                 <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
                             </Button>
 

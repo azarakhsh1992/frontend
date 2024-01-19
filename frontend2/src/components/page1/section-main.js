@@ -20,6 +20,7 @@ const SectionMain = () => {
     const [QrScanned,SetQrScanned] = useState(null);
     const [RequestChecked,SetRequestChecked] = useState("cancel");
     const [MonitoringData,SetMonitoringData] = useState(null);
+    const [homePageState , setHomePageState] = useState(false);
 // authentication
     const {AuthD,setAuth} = useAuth();
 
@@ -76,39 +77,47 @@ const SectionMain = () => {
                                             SetRequestChecked={SetRequestChecked} setQr={SetQrScanned} AuthD={AuthD}
                                             DoorQr={QrScanned}
                                             MonitoringData={MonitoringData && MonitoringData}
+                                            setHomePageState={setHomePageState}
                                 />
                             </Box>
                             {
-                                (MonitoringData !== null) ?
-                                    <Box>
-                                        <SectionMiddle className={clsx(classes.middle_box)}
-                                                       MonitoringDatas={MonitoringData} DoorQr={QrScanned}/>
-                                    </Box>
+                                homePageState === true ?
+                                    <>
+                                        {(MonitoringData !== null) ?
+                                            <Box>
+                                                <SectionMiddle className={clsx(classes.middle_box)}
+                                                               MonitoringDatas={MonitoringData} DoorQr={QrScanned}/>
+                                            </Box>
+                                            :
+                                            <Box>
+                                                {/*<QrReaderd onSetQr={SetQrScanned}/>*/}
+                                                // begin using textfield instead qrcode reader
+                                                <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
+                                                    <TextField
+                                                        margin="normal"
+                                                        required
+                                                        fullWidth
+                                                        id="qrcode"
+                                                        label="qrcode"
+                                                        name="qrcode"
+                                                        autoFocus
+                                                    />
+                                                    <Button
+                                                        type="submit"
+                                                        fullWidth
+                                                        variant="contained"
+                                                        sx={{mt: 3, mb: 2}}
+                                                    >
+                                                        Send QR
+                                                    </Button>
+                                                </Box>
+                                                // end using textfield instead qrcode reader
+                                            </Box>}
+                                    </>
                                     :
-                                    <Box>
-                                        {/*<QrReaderd onSetQr={SetQrScanned}/>*/}
-                                        // begin using textfield instead qrcode reader
-                                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
-                                            <TextField
-                                                margin="normal"
-                                                required
-                                                fullWidth
-                                                id="qrcode"
-                                                label="qrcode"
-                                                name="qrcode"
-                                                autoFocus
-                                            />
-                                            <Button
-                                                type="submit"
-                                                fullWidth
-                                                variant="contained"
-                                                sx={{mt: 3, mb: 2}}
-                                            >
-                                                Send QR
-                                            </Button>
-                                        </Box>
-                                        // end using textfield instead qrcode reader
-                                    </Box>
+                                    <>
+                                        <Typography variant={"h3"}>Home Page</Typography>
+                                    </>
                             }
 
                         </Box>
