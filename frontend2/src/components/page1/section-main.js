@@ -86,28 +86,28 @@ const SectionMain = () => {
                                     </Box>
                                     :
                                     <Box>
-                                        <QrReaderd onSetQr={SetQrScanned}/>
-                                    {/*    // begin using textfield instead qrcode reader*/}
-                                    {/*    <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>*/}
-                                    {/*        <TextField*/}
-                                    {/*            margin="normal"*/}
-                                    {/*            required*/}
-                                    {/*            fullWidth*/}
-                                    {/*            id="qrcode"*/}
-                                    {/*            label="qrcode"*/}
-                                    {/*            name="qrcode"*/}
-                                    {/*            autoFocus*/}
-                                    {/*        />*/}
-                                    {/*        <Button*/}
-                                    {/*            type="submit"*/}
-                                    {/*            fullWidth*/}
-                                    {/*            variant="contained"*/}
-                                    {/*            sx={{mt: 3, mb: 2}}*/}
-                                    {/*        >*/}
-                                    {/*            Send QR*/}
-                                    {/*        </Button>*/}
-                                    {/*    </Box>*/}
-                                    {/*    // end using textfield instead qrcode reader*/}
+                                        {/*<QrReaderd onSetQr={SetQrScanned}/>*/}
+                                        // begin using textfield instead qrcode reader
+                                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
+                                            <TextField
+                                                margin="normal"
+                                                required
+                                                fullWidth
+                                                id="qrcode"
+                                                label="qrcode"
+                                                name="qrcode"
+                                                autoFocus
+                                            />
+                                            <Button
+                                                type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{mt: 3, mb: 2}}
+                                            >
+                                                Send QR
+                                            </Button>
+                                        </Box>
+                                        // end using textfield instead qrcode reader
                                     </Box>
                             }
 
