@@ -36,7 +36,7 @@ export const useStyles = makeStyles((theme) => ({
     btn:{
         height:'auto !important',
         width:'60%',
-        backgroundColor: `${theme.palette.tertiary.vw} !important`,
+        backgroundColor: `${theme.palette.volkswagen.blue} !important`,
         color: `white !important`,
         borderRadius:'20px !important',
         margin:'auto auto !important',

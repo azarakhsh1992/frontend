@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     btn:{
         height:'auto !important',
         width:'50px',
-        backgroundColor: `${theme.palette.tertiary.gray} !important`,
+        backgroundColor: `${theme.palette.volkswagen.blue} !important`,
         color: `white !important`,
         borderRadius:'20px !important',
         margin:'auto 20px !important',

@@ -11,7 +11,8 @@ const primary = {
 export const theme = createTheme({
     palette: {
         primary: {
-            main: '#662549',
+            // main: '#662549',
+            main:'rgb(0, 30, 80)',
             light: '#AE445A',
             dark: '#451952',
             contrastText: '#1D1A39',
@@ -35,8 +36,10 @@ export const theme = createTheme({
             red3:'#F06161',
             green2:'#7AA71A',
             blue2:'#2B2E4A',
-            vw:'rgb(0, 30, 80)'
         },
+        volkswagen: {
+            blue:'rgb(0, 30, 80)'
+        }
     },
     status: {
         danger: orange[500],
