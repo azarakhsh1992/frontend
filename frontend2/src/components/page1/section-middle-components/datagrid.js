@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { DataGrid } from '@mui/x-data-grid';
 import { useDemoData } from '@mui/x-data-grid-generator';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function AutoHeightGrid({MyData}) {
     const [nbRows, setNbRows] = React.useState(3);
@@ -17,7 +18,7 @@ export default function AutoHeightGrid({MyData}) {
     });
     const Dcol= [{field:'status', width: 'auto !important' },{field:'from', width: 'auto !important' },{field:'to', width: 'auto !important' }];
     const TransformData = ()=>{
-        const transformedObj = Object.keys(MyData).map((value, index) => {
+        const transformedObj =Object.keys(MyData).map((value, index) => {
             if(MyData[value]['status']!== "-"){
                 return (
                     {
@@ -36,7 +37,8 @@ export default function AutoHeightGrid({MyData}) {
         const finalObj = transformedObj.filter(item => item !== undefined);
         return finalObj;
     }
-    const filteredArr = TransformData(MyData);
+    const filteredArr =MyData && TransformData(MyData);
+    console.log(filteredArr);
     return (
         <Box sx={{ width: '100%' }}>
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
@@ -52,14 +54,18 @@ export default function AutoHeightGrid({MyData}) {
             {/*    pagination: { paginationModel: { pageSize: 5 } },*/}
             {/*}}*/}
             {/*          pageSizeOptions={[5, 10, 25]}/>*/}
-            <DataGrid
-                rows={filteredArr}
+            {MyData ? <DataGrid
+                rows={MyData && filteredArr}
                 columns={Dcol}
                 initialState={{
-                    pagination: { paginationModel: { pageSize: 5 } },
+                    pagination: {paginationModel: {pageSize: 5}},
                 }}
                 pageSizeOptions={[5, 10, 25]}
-            />
+            /> :
+                <Box justifyContent={'center !important'} alignItems={'center !important'} display={'flex !important'} marginTop={'auto !important'} marginBottom={'auto !important'}>
+                    <CircularProgress />
+                </Box>
+            }
         </Box>
     );
 }
