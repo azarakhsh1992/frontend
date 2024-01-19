@@ -49,5 +49,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     btn_typo:{
         textTransform:'none !important',
+        fontWeight:'bold !important'
     }
 }));
