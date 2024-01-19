@@ -18,7 +18,7 @@ import {SectionDoor} from "./section-middle-components/section-door";
 import {SectionEnergy} from "./section-middle-components/section-energy";
 import {useEffect} from "react";
 import {useHistoryDoor, useHistoryEnergy, useHistoryTemp} from "../../fetches/monitoring-fetches";
-
+import {theme} from "../../theme/Theme";
 
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
@@ -48,8 +48,8 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                <Box sx={{justifyContent:'center !important',alignItems:'center !important',width:'100% !important'}}>
-                    <Typography variant={'h4'} textAlign={'center !important'} marginBottom={'5px !important'}>Cabinet: {MonitoringDatas.scanned_door["Cabinet"]}, in Hall:{MonitoringDatas.scanned_door["Hall"]}</Typography>
+                <Box sx={{justifyContent:'center !important',alignItems:'center !important',width:'100% !important',borderRadius:'20px !important',backgroundColor:`${theme.palette.volkswagen.blue} !important`}}>
+                    <Typography variant={'h4'} textAlign={'center !important'} marginBottom={'5px !important'} color={'white !important'}>Cabinet: {MonitoringDatas.scanned_door["Cabinet"]}, in Hall:{MonitoringDatas.scanned_door["Hall"]}</Typography>
                 </Box>
 				{/*TEMP START*/}
                 <Box className={clsx(classes.temp_box)}>
