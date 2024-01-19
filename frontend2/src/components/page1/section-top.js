@@ -30,8 +30,11 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
         },3000);
     }
 
-    const HandleHomePage = () => {
-        setHomePageState(true);
+    const HandleHomePage = (val) => {
+        setHomePageState(val);
+        if(!val){
+            window.location.reload();
+        }
     }
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -39,7 +42,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                 <Fade in={((RequestChecked !== "accept")&&(RequestChecked!=="counting")&&(RequestChecked!=="onprogress"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
-                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={HandleHomePage}>
+                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=>HandleHomePage(true)}>
                                 <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
                             </Button>
 
@@ -51,7 +54,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                         </Box>
                         <Box className={clsx(classes.rightbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>Cabinet Overview</Typography>
+                                <Typography className={clsx(classes.btn_typo)} onClick={(event)=>HandleHomePage(false)}>Home Page</Typography>
                             </Button>
 
 
