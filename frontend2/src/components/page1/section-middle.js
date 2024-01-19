@@ -23,7 +23,7 @@ import {useHistoryDoor, useHistoryEnergy, useHistoryTemp} from "../../fetches/mo
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
     const DoorTab = ["Edge_A_Front","Edge_A_Rear","Edge_B_Front","Edge_B_Rear","Cooling_Front",
-                                "Cooling_Rear","Network_Network","Energy_Energy"];
+                                "Cooling_Rear","Network","Energy"];
     // Style Class
     const classes = useStyles();
     // Tabs Control
