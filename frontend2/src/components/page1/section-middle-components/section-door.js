@@ -18,6 +18,7 @@ export const SectionDoor = ({DoorDatas,historydoor}) => {
         'Locked':"green",
         'Unlocked':"orange",
         'Faulted':"yellow",
+        'No Data':"gray"
     }
     const classes = useStyles();
     return (
