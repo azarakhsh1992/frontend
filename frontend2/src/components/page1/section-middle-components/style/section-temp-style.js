@@ -60,5 +60,10 @@ export const useStyles = makeStyles((theme) => ({
         alignItems:'center !important',
         marginRight:'5px !important',
         marginLeft:'0px !important'
+    },
+    title_key:{
+        borderRadius:'20px !important',
+        minWidth:'80px !important',
+        border:`2px solid ${theme.palette.volkswagen.blue} !important`,
     }
 }));
