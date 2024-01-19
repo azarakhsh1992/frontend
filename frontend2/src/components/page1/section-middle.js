@@ -22,8 +22,8 @@ import {theme} from "../../theme/Theme";
 
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
-    const DoorTab = ["Edge_A_Front","Edge_A_Rear","Edge_B_Front","Edge_B_Rear","Cooling_Front",
-                                "Cooling_Rear","Network","Energy"];
+    const DoorTab = ["Edge A Front","Edge A Rear","Edge B Front","Edge B Rear","Cooling Front",
+                                "Cooling Rear","Network","Energy"];
     // Style Class
     const classes = useStyles();
     // Tabs Control

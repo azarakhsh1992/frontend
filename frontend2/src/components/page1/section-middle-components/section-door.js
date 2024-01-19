@@ -25,7 +25,7 @@ export const SectionDoor = ({DoorDatas,historydoor}) => {
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box className={clsx(classes.door_box)}>
-                    <PopupDataDoor txt={"history"} HistoryData={(historydoor && historydoor)}/>
+                    <PopupDataDoor txt={"History"} HistoryData={(historydoor && historydoor)}/>
                     {DoorDatas["Current"] && <Typography className={clsx(classes.door_status_typo)}
                                  sx={{backgroundColor: `${DoorColor[DoorDatas["Current"]]} !important`}}>
                         {DoorDatas["Current"]}

@@ -28,7 +28,7 @@ export const SectionEnergy = ({EnergyData,DoorQr,historyEnergy}) => {
                     <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{EnergyData["Energy"]}</Typography>
                 </Box>
                 <Box>
-                    <PopupDataEnergy txt={"history"} HistoryData={(historyEnergy && historyEnergy[""])}/>
+                    <PopupDataEnergy txt={"History"} HistoryData={(historyEnergy && historyEnergy[""])}/>
                 </Box>
             </Box>
         </Container>
