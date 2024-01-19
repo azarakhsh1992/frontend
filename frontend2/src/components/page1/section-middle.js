@@ -59,7 +59,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_tmp} aria-label="lab API tabs example">
                                 {Object.keys(MonitoringDatas.Temperature).map((value, index) => {
                                     return (
-                                        <Tab label={value} value={`${index+1}`}/>
+                                        <Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>
                                     );
                                 })}
                             </TabList>
@@ -83,7 +83,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_door} aria-label="lab API tabs example">
                                 {DoorTab.map((value, index) => {
                                     if(MonitoringDatas.Door_Sensors[value]){
-                                        return (<Tab label={value} value={`${index+1}`} />);
+                                        return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);
                                     }
                                     else {
                                         return null;
@@ -113,7 +113,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_energy} aria-label="lab API tabs example">
                                 {Object.keys(MonitoringDatas.Energy).map((value, index) => {
                                     if(MonitoringDatas.Energy[value]){
-                                        return (<Tab label={value} value={`${index+1}`} />);
+                                        return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);
                                     }
                                     else {
                                         return null;

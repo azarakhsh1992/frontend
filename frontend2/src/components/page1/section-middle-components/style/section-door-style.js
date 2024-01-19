@@ -36,5 +36,6 @@ export const useStyles = makeStyles((theme) => ({
         borderRadius:'20px',
         padding:"6px 16px !important",
         border:`2px solid ${theme.palette.volkswagen.blue} !important`,
+        fontWeight:'bold !important'
     }
 }));
