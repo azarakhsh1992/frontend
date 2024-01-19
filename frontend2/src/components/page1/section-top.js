@@ -16,7 +16,7 @@ import SectionRequestRejected from "./section-top-components/section-request-rej
 import Mycabinet from "./section-top-components/mycabinet";
 
 
-const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData,setHomePageState}) => {
+const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,AuthD,MonitoringData,SetMonitoringData,setHomePageState}) => {
 
     //request data
     const [reqData,setreqData] = useState(null);
@@ -32,17 +32,23 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
 
     const HandleHomePage = (val) => {
         setHomePageState(val);
-        if(!val){
-            window.location.reload();
-        }
+        window.location.reload();
     }
+
+    const HandleQrScan = (val) => {
+        setHomePageState(val);
+        SetQrScanned(null);
+        SetMonitoringData(null);
+        window.location.reload();
+    }
+
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Fade in={((RequestChecked !== "accept")&&(RequestChecked!=="counting")&&(RequestChecked!=="onprogress"))} timeout={300}>
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
-                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=>HandleHomePage(true)}>
+                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=>HandleQrScan(false)}>
                                 <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
                             </Button>
 
@@ -54,7 +60,7 @@ const SectionTop = ({QrScanned,RequestChecked,SetRequestChecked,setQr,DoorQr,Aut
                         </Box>
                         <Box className={clsx(classes.rightbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)} onClick={(event)=>HandleHomePage(false)}>Home Page</Typography>
+                                <Typography className={clsx(classes.btn_typo)} onClick={(event)=>HandleHomePage(true)}>Home Page</Typography>
                             </Button>
 
 
