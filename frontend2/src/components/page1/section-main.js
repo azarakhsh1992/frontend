@@ -78,10 +78,12 @@ const SectionMain = () => {
                                             DoorQr={QrScanned}
                                             MonitoringData={MonitoringData && MonitoringData}
                                             setHomePageState={setHomePageState}
+                                            SetMonitoringData={SetMonitoringData}
+                                            SetQrScanned={SetQrScanned}
                                 />
                             </Box>
                             {
-                                homePageState === true ?
+                                homePageState === false ?
                                     <>
                                         {(MonitoringData !== null) ?
                                             <Box>

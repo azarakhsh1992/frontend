@@ -43,18 +43,19 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     energy_typo_strom:{
-        borderColor:'red !important',
+        borderColor:`${theme.palette.volkswagen.blue} !important`,
     },
     energy_typo_energie:{
-        borderColor:'green !important',
+        borderColor:`${theme.palette.volkswagen.blue} !important`,
     },
     energy_typo_strom_val:{
-        backgroundColor:'red',
+        borderColor:`${theme.palette.volkswagen.blue} !important`,
+        backgroundColor: `${theme.palette.volkswagen.blue} !important`,
         color:'white !important'
     },
     energy_typo_energie_val:{
-        borderColor:'green !important',
-        backgroundColor:'green',
+        borderColor:`${theme.palette.volkswagen.blue} !important`,
+        backgroundColor: `${theme.palette.volkswagen.blue} !important`,
         color:'white !important'
     }
 }));
