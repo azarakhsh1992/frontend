@@ -31,7 +31,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
                             return (
                                 <Box className={clsx(classes.btn_box)} id={index}>
                                     <Box className={clsx(classes.title_box)}>
-                                        <Typography className={clsx(classes.title_typo)}>
+                                        <Typography className={clsx(classes.title_typo,classes.title_key)}>
                                             {value}
                                         </Typography>
                                         <PopupDataTemp txt={value} HistoryData={(HistoryTemp && HistoryTemp[value])}/>
