@@ -35,6 +35,7 @@ export const theme = createTheme({
             red3:'#F06161',
             green2:'#7AA71A',
             blue2:'#2B2E4A',
+            vw:'rgb(0, 30, 80)'
         },
     },
     status: {
