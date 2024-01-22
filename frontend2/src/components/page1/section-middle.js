@@ -49,7 +49,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
                 <Box sx={{justifyContent:'center !important',display:'flex',marginBottom:'10px !important',alignItems:'center !important',width:'100% !important',minHeight:'50px !important',borderRadius:'20px !important',backgroundColor:`${theme.palette.volkswagen.blue} !important`}}>
-                    <Typography variant={'h4'} textAlign={'center !important'} display={'inline-block'} color={'white !important'}>Cabinet: {MonitoringDatas.scanned_door["Cabinet"]}, in Hall:{MonitoringDatas.scanned_door["Hall"]}</Typography>
+                    <Typography variant={'h4'} textAlign={'center !important'} display={'inline-block'} color={'white !important'}>Cabinet: {MonitoringDatas.scanned_door["Cabinet"]}, Hall:{MonitoringDatas.scanned_door["Hall"]}</Typography>
                 </Box>
 				{/*TEMP START*/}
                 <Box className={clsx(classes.temp_box)}>
