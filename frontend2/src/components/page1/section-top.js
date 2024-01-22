@@ -21,7 +21,7 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
     //request data
     const [reqData,setreqData] = useState(null);
     const [myCabinetopen,setMyCabinetOpen] = useState(false);
-
+    const [requestRejected,setRequestRejected] = useState(true);
     const classes = useStyles();
 
     const HandleReject = () => {
@@ -81,9 +81,9 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
                         </Box>
                     </Fade>
                     :
-                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored")&&(RequestChecked !== "completed"))} timeout={300}>
+                    <Fade in={((RequestChecked !== "cancel")&&(RequestChecked !== "ignored")&&(RequestChecked !== "completed")&&(RequestChecked!=="rejected"))} timeout={300}>
                         <Box className={clsx(classes.top_box_sectiontop)}>
-                            <SectionRequestRejected RejectedData={reqData} SetRequestChecked={SetRequestChecked}/>
+                            <SectionRequestRejected RejectedData={reqData} SetRequestChecked={SetRequestChecked} requestRejected={requestRejected} setRequestRejected={setRequestRejected}/>
                         </Box>
                     </Fade>
                 }
