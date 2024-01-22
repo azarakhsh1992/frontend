@@ -24,13 +24,12 @@ const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,
 
     return (
         <Container className={clsx(classes.maincontainer)}>
-            <Box className={clsx(classes.mainbox)}>
+            <Box className={clsx(classes.mainbox,classes.message_response_box)}>
                 {RejectedData && Object.keys(RejectedData.message).map((value, index) => {
                     return (
                         // <Typography>{RejectedData.message[value]}</Typography>
-                        <Box className={clsx(classes.message_response_box)}>
+
                             <Typography className={clsx(classes.message_response_typo)}>{RejectedData.message[value]}</Typography>
-                        </Box>
                     );
                 })
                 }
