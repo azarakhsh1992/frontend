@@ -151,7 +151,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             </>
                         :
                         <>
-                            <SectionRequestAccessed reqData={reqData} SetRequestchecked={SetRequestchecked} setCount setactiveReq setFetchResult setShouldStopCountdown setIsIgnored setServiceLog/>
+                            <SectionRequestAccessed reqData={reqData} SetRequestchecked={SetRequestchecked} setCount={setCount} setactiveReq={setactiveReq} setFetchResult={setFetchResult} setShouldStopCountdown={setShouldStopCountdown} setIsIgnored={setIsIgnored} setServiceLog={setServiceLog}/>
                         </>
                     }
                 </Box>
