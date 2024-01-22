@@ -55,9 +55,10 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShoul
             return _serviceMsg;
         }
         const ServiceMsg = serviceLog();
+        console.log(ServiceMsg);
         const ReqId = reqData.id;
         const UserId = AuthD.user["id"];
-        if(ServiceMsg==="None"){
+        if(ServiceMsg==="None" || ServiceMsg===''){
             enqueueSnackbar("Please Select A service Message", {variant:'error',style:{borderRadius:'17px',},anchorOrigin:{
                     vertical:"top",
                     horizontal:"right",
