@@ -61,7 +61,7 @@ export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defc
                 <DialogTitle>{"Requesting Access"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Are you sure u want open ,Hall:{ScannedDoor && ScannedDoor.Hall} ,Rack:{ScannedDoor && ScannedDoor.Rack} ,Door:{ScannedDoor && ScannedDoor.Door} ?
+                        Are you sure u want open ,Rack:{ScannedDoor && ScannedDoor.Rack} ,Door:{ScannedDoor && ScannedDoor.Door} ?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
