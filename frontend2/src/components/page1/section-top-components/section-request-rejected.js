@@ -31,7 +31,7 @@ const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,
                     );
                 })
                 }
-                <Button onClick={handleButton}>
+                <Button onClick={handleButton} variant={'outlined'}>
                     Back to Monitoring Page
                 </Button>
             </Box>
