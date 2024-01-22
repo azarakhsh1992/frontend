@@ -32,6 +32,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
     const [isIgnored, setIsIgnored] = useState(false);
     //active service log
     const [serviceLog,setServiceLog] = useState(false);
+    const[reqResData,setReqResData]=useState('');
     useEffect(()=>{
         if(DoorQr !== null){
             if(Requestchecked === "accept"  && !serviceLog){
@@ -76,6 +77,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                         }},AuthD.token);
                     if(data && data.access == true){
                         SetRequestchecked("onprogress");
+                        setReqResData(data);
                         setCount(0);
                         setServiceLog(true);
                     }
@@ -151,7 +153,11 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             </>
                         :
                         <>
-                            <SectionRequestAccessed reqData={reqData} SetRequestchecked={SetRequestchecked} setCount={setCount} setactiveReq={setactiveReq} setFetchResult={setFetchResult} setShouldStopCountdown={setShouldStopCountdown} setIsIgnored={setIsIgnored} setServiceLog={setServiceLog}/>
+                            <SectionRequestAccessed reqData={reqData} SetRequestchecked={SetRequestchecked}
+                                                    setCount={setCount} setactiveReq={setactiveReq} setFetchResult={setFetchResult}
+                                                    setShouldStopCountdown={setShouldStopCountdown} setIsIgnored={setIsIgnored} setServiceLog={setServiceLog}
+                                                    reqResData={reqResData}
+                            />
                         </>
                     }
                 </Box>

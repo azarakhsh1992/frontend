@@ -23,7 +23,7 @@ const ObjectAccess = {
     'message 3':'MSG 3',
     'other':'Other'
 }
-const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShouldStopCountdown,setFetchResult,setServiceLog,setCount,setIsIgnored}) => {
+const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShouldStopCountdown,setFetchResult,setServiceLog,setCount,setIsIgnored,reqResData}) => {
 
     const classes = useStyles();
     const [Message, setMessage] = React.useState('');
@@ -104,6 +104,7 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShoul
                         Submit
                     </Typography>
                 </Button>
+                <Typography>{reqResData && reqResData.message}</Typography>
             </Box>
         </Container>
     );
