@@ -10,16 +10,18 @@ import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-request-rejected-style";
 
-const SectionRequestRejected = ({RejectedData,SetRequestChecked}) => {
+const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,setRequestRejected}) => {
     const classes = useStyles();
+
 
 
     const handleButton = () => {
         setTimeout(()=>{
-            SetRequestChecked("cancel");
-            window.location.reload();
+            SetRequestChecked("rejected");
+            // window.location.reload();
         },2500);
     }
+
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
@@ -30,7 +32,7 @@ const SectionRequestRejected = ({RejectedData,SetRequestChecked}) => {
                 })
                 }
                 <Button onClick={handleButton}>
-                    reload
+                    Back to Monitoring Page
                 </Button>
             </Box>
         </Container>
