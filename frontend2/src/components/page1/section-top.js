@@ -32,14 +32,14 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
 
     const HandleHomePage = (val) => {
         setHomePageState(val);
-        window.location.reload();
+        // window.location.reload();
     }
 
     const HandleQrScan = (val) => {
         setHomePageState(val);
         SetQrScanned(null);
         SetMonitoringData(null);
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (

@@ -20,7 +20,7 @@ const SectionMain = () => {
     const [QrScanned,SetQrScanned] = useState(null);
     const [RequestChecked,SetRequestChecked] = useState("cancel");
     const [MonitoringData,SetMonitoringData] = useState(null);
-    const [homePageState , setHomePageState] = useState(false);
+    const [homePageState , setHomePageState] = useState(true);
 // authentication
     const {AuthD,setAuth} = useAuth();
 
@@ -32,36 +32,38 @@ const SectionMain = () => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
 
-        const datas = await GetData({'qr':data.get('qrcode')});
         SetQrScanned(data.get('qrcode'));
-        if(datas !== undefined){
-            SetMonitoringData(datas);
-        }
-        else {
-            SetMonitoringData(null);
-        }
+        // const datas = await GetData({'qr':data.get('qrcode')});
+        // if(datas !== undefined){
+        //     SetMonitoringData(datas);
+        // }
+        // else {
+        //     SetMonitoringData(null);
+        // }
     }
 
     useEffect(() => {
-        const fetchInterval = setInterval(()=>{
-            const datas = async ()=>{
-                if(QrScanned){
-                    const _datas = await GetData({'qr':QrScanned});
-                    if(_datas !== undefined){
-                        SetMonitoringData(_datas);
-                    }
-                    else {
-                        SetMonitoringData(null);
-                    }
+        // If QrScanned is null, don't set up the interval
+        if (QrScanned === null) {
+            return;
+        }
+
+        const fetchInterval = setInterval(async () => {
+            if (QrScanned) {
+                const _datas = await GetData({'qr': QrScanned});
+                if (_datas !== undefined) {
+                    SetMonitoringData(_datas);
+                } else {
+                    SetMonitoringData(null);
                 }
             }
-            datas();
+        }, myInterval);
 
-        },myInterval);
-        if(QrScanned === null){
-            clearInterval(fetchInterval);
-        }
+        // Clean-up function to clear the interval when the component unmounts or QrScanned changes
+        return () => clearInterval(fetchInterval);
+
     }, [QrScanned]);
+
 
 
     const classes = useStyles();
