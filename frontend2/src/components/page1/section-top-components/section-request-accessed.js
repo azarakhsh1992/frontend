@@ -23,13 +23,22 @@ const ObjectAccess = {
     'message 3':'MSG 3',
     'other':'Other'
 }
-const SectionRequestAccessed = ({reqData,SetRequestchecked}) => {
+const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShouldStopCountdown,setFetchResult,setServiceLog,setCount,setIsIgnored}) => {
 
     const classes = useStyles();
     const [Message, setMessage] = React.useState('');
     const [Service,setService] = useState('');
     const [TextfieldMsg,setTextfieldMsg] = useState('');
     const {AuthD,setAuth} = useAuth();
+
+    const setDefault = () =>{
+        setCount(60);
+        setactiveReq(null);
+        setFetchResult(false);
+        setServiceLog(false);
+        setShouldStopCountdown(false);
+        setIsIgnored(false);
+    }
     const handleChange = (event) => {
         setMessage(event.target.value);
         setService(ObjectAccess[event.target.value]);
@@ -56,6 +65,8 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked}) => {
                 }});
             SetRequestchecked("completed");
         }
+        setDefault();
+
     }
     return (
         <Container className={clsx(classes.maincontainer)}>
