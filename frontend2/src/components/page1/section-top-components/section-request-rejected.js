@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-request-rejected-style";
+import {theme} from "../../../theme/Theme";
 
 const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,setRequestRejected}) => {
     const classes = useStyles();
@@ -33,7 +34,7 @@ const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,
                     );
                 })
                 }
-                <Button onClick={handleButton} variant={'outlined'}>
+                <Button onClick={handleButton} variant={'outlined'} sx={{color:`${theme.palette.volkswagen.blue} !important`,backgroundColor:'white !important'}}>
                     Back to Monitoring Page
                 </Button>
             </Box>
