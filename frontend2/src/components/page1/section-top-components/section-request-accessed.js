@@ -57,6 +57,13 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShoul
         const ServiceMsg = serviceLog();
         const ReqId = reqData.id;
         const UserId = AuthD.user["id"];
+        if(ServiceMsg===''){
+            enqueueSnackbar("Please Select A service Message", {variant:'error',style:{borderRadius:'17px',},anchorOrigin:{
+                    vertical:"top",
+                    horizontal:"right",
+                }});
+            return;
+        }
         const datas = await ServiceLog({'request':ReqId,"service":ServiceMsg,"user_id":UserId});
         if(datas){
             enqueueSnackbar("Request Service Log Submitted", {variant:'success',style:{borderRadius:'17px',},anchorOrigin:{
