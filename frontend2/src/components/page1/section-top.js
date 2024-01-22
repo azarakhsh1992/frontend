@@ -55,7 +55,13 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
                             <Mycabinet />
 
                             <Button variant={"contained"} className={clsx(classes.btn)}>
-                                <Typography className={clsx(classes.btn_typo)}>{MonitoringData && MonitoringData.scanned_door}</Typography>
+                                {
+                                    MonitoringData && MonitoringData.scanned_door.Rack
+                                    ?
+                                    <Typography className={clsx(classes.btn_typo)}>{MonitoringData && MonitoringData.scanned_door.Rack}, {MonitoringData && MonitoringData.scanned_door.Door}</Typography>
+                                      :
+                                      <Typography className={clsx(classes.btn_typo)}>No Door Scanned</Typography>
+                                }
                             </Button>
                         </Box>
                         <Box className={clsx(classes.rightbox)}>
