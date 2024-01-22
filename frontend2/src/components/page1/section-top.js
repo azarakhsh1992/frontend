@@ -54,7 +54,7 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
 
                             <Mycabinet />
 
-                            <Button variant={"contained"} className={clsx(classes.btn)}>
+                            <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=>{HandleHomePage(false)}}>
                                 {
                                     MonitoringData && MonitoringData.scanned_door.Rack
                                     ?
