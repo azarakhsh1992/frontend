@@ -27,7 +27,10 @@ const SectionRequestRejected = ({RejectedData,SetRequestChecked,requestRejected,
             <Box className={clsx(classes.mainbox)}>
                 {RejectedData && Object.keys(RejectedData.message).map((value, index) => {
                     return (
-                        <Typography>{RejectedData.message[value]}</Typography>
+                        // <Typography>{RejectedData.message[value]}</Typography>
+                        <Box className={clsx(classes.message_response_box)}>
+                            <Typography className={clsx(classes.message_response_typo)}>{RejectedData.message[value]}</Typography>
+                        </Box>
                     );
                 })
                 }
