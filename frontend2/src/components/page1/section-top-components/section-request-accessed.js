@@ -13,6 +13,7 @@ import TextField from "@mui/material/TextField";
 import {ServiceLog} from "../../../services/request-services";
 import {useAuth} from "../../../hooks/useAuth";
 import {enqueueSnackbar} from "notistack";
+import {theme} from "../../../theme/Theme";
 
 
 const ArrayAccess = ['None','message 1','message 2','message 3','other']
@@ -104,7 +105,14 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShoul
                         Submit
                     </Typography>
                 </Button>
-                <Typography>{reqResData && reqResData.message}</Typography>
+                {
+                  reqResData && reqResData.message ?
+                    <Box className={clsx(classes.message_response_box)}>
+                        <Typography className={clsx(classes.message_response_typo)}>{reqResData && reqResData.message}</Typography>
+                    </Box>
+                    :
+                    <></>
+                }
             </Box>
         </Container>
     );

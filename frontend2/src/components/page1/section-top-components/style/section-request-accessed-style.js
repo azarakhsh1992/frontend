@@ -46,5 +46,24 @@ export const useStyles = makeStyles((theme) => ({
         textTransform:'none !important',
         margin:'20px !important',
         color:'white !important'
+    },
+    message_response_box:{
+        minHeight:'50px !important',
+        minWidth:'100% !important',
+        backgroundColor:`${theme.palette.volkswagen.blue} !important`,
+        border:'1px solid !important',
+        borderRadius:'30px !important',
+        justifyContent:'center !important',
+        alignItems:'center !important',
+        display:'flex',
+        marginTop:'10px !important',
+        marginBottom:'5px !important'
+    },
+    message_response_typo:{
+        color:'white !important',
+        maxWidth: '80% !important', // Adjust this value based on the desired number of characters and font size
+        wordWrap: 'break-word',
+        textAlign: 'center !important',
+        fontSize:'small !important',
     }
 }));
