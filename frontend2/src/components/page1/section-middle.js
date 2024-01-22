@@ -77,7 +77,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                 {/*TEMP END*/}
                 {/*DOOR START*/}
                 <Box className={clsx(classes.door_box)}>
-                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Doors</Typography>
+                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Door Status</Typography>
                     <TabContext value={value_door}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_door} aria-label="lab API tabs example">

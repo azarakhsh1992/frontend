@@ -18,7 +18,7 @@ export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
 
     const classes = useStyles();
 
-    const sectionTempArray = ["Top section","Middle section","Bottom section",""];
+    const sectionTempArray = ["Top section","Middle section","Bottom section","Main section"];
 
 
     return (
