@@ -47,3 +47,14 @@ export function GetHistoryDoor(qr){
     }).then(status).catch(e => {console.log(e);
     })
 }
+
+export function GetHistorySensor(qr){
+    return fetch(`https://${API}/web/monitoring/history_doorsensor/`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(qr)
+    }).then(status).catch(e => {console.log(e);
+    })
+}

@@ -1,6 +1,6 @@
 import {useState , useEffect} from "react";
 import {SetRequest} from "../services/request-services";
-import {GetHistoryDoor, GetHistoryEnergy, GetHistoryTemp} from "../services/monitoring-services";
+import {GetHistoryDoor, GetHistoryEnergy, GetHistoryTemp,GetHistorySensor} from "../services/monitoring-services";
 
 
 export function useHistoryTemp(QrCode){
@@ -55,4 +55,22 @@ export function useHistoryDoor(QrCode){
         getData();
     },[]);
     return [historyEnergy, loading, error]
+}
+
+export function useHistorySensor(QrCode){
+
+    const [historySensor, setHistorySensor] = useState(null);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+        const getData = async () => {
+            setLoading(true);
+            const data = await GetHistorySensor(QrCode);
+            setHistorySensor(data);
+            setLoading(false);
+        }
+        getData();
+    },[]);
+    return [historySensor, loading, error]
 }

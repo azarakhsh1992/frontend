@@ -17,7 +17,7 @@ import {SectionTemp} from "./section-middle-components/section-temp";
 import {SectionDoor} from "./section-middle-components/section-door";
 import {SectionEnergy} from "./section-middle-components/section-energy";
 import {useEffect} from "react";
-import {useHistoryDoor, useHistoryEnergy, useHistoryTemp} from "../../fetches/monitoring-fetches";
+import {useHistoryDoor, useHistoryEnergy, useHistoryTemp,useHistorySensor} from "../../fetches/monitoring-fetches";
 import {theme} from "../../theme/Theme";
 
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
@@ -30,10 +30,12 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     const [value_tmp, setValue_tmp] = React.useState('1');
     const [value_door, setValue_door] = React.useState('1');
     const [value_energy, setValue_energy] = React.useState('1');
+    const [value_sensor, setValue_sensor] = React.useState('1');
 	// Histories
     const [historyTemp, loadingTemp, errorTemp] = useHistoryTemp({'qr':DoorQr});
     const [historyDoor, loadingDoor, errorDoor] = useHistoryDoor({"qr":DoorQr})
     const [historyEnergy, loadingEnergy, errorEnergy] = useHistoryEnergy({"qr":DoorQr})
+    const [historySensor, loadingSensor, errorSensor] = useHistorySensor({"qr":DoorQr})
 
 
     const handleChange_tmp = (event, newValue) => {
@@ -44,6 +46,9 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     };
     const handleChange_energy = (event, newValue) => {
         setValue_energy(newValue);
+    };
+    const handleChange_sensor = (event, newValue) => {
+        setValue_sensor(newValue);
     };
     return (
         <Container className={clsx(classes.maincontainer)}>
@@ -137,6 +142,36 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                     {/*<SectionEnergy EnergyData={MonitoringDatas.Energy}/>*/}
                 </Box>
             	{/*ENERGY END*/}
+              {/*  /!*Sensor START*!/*/}
+              {/*  <Box className={clsx(classes.door_box)}>*/}
+              {/*      <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Sensor Status</Typography>*/}
+              {/*      <TabContext value={value_sensor}>*/}
+              {/*          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>*/}
+              {/*              <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_sensor} aria-label="lab API tabs example">*/}
+              {/*                  {DoorTab.map((value, index) => {*/}
+              {/*                      if(MonitoringDatas.Sensor_Sensors[value]){*/}
+              {/*                          return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);*/}
+              {/*                      }*/}
+              {/*                      else {*/}
+              {/*                          return null;*/}
+              {/*                      }*/}
+              {/*                  })}*/}
+              {/*              </TabList>*/}
+              {/*          </Box>*/}
+              {/*          {DoorTab.map((value, index) => {*/}
+              {/*              if(MonitoringDatas.Sensor_Sensors[value]){*/}
+              {/*                  return (*/}
+              {/*                    <TabPanel value={`${index+1}`}>*/}
+              {/*                        <SectionDoor DoorDatas={MonitoringDatas.Sensor_Sensors[value]} historydoor={historySensor && historySensor[value]}/>*/}
+              {/*                    </TabPanel>);*/}
+              {/*              }*/}
+              {/*              else {*/}
+              {/*                  return null;*/}
+              {/*              }*/}
+              {/*          })}*/}
+              {/*      </TabContext>*/}
+              {/*  </Box>*/}
+              {/*  /!*Sensor END*!/*/}
             </Box>
         </Container>
     );
