@@ -16,12 +16,23 @@ import {enqueueSnackbar} from "notistack";
 import {theme} from "../../../theme/Theme";
 
 
-const ArrayAccess = ['None','message 1','message 2','message 3','other']
+// const ArrayAccess = ['None','message 1','message 2','message 3','other']
+// const ObjectAccess = {
+//     'None':'NOTHING',
+//     'message 1':'MSG 1',
+//     'message 2':'MSG 2',
+//     'message 3':'MSG 3',
+//     'other':'Other'
+// }
+
+
+const ArrayAccess = ['Disturbance','Cleaning','Exchange','Maintenance','Measurement','other']
 const ObjectAccess = {
-    'None':'NOTHING',
-    'message 1':'MSG 1',
-    'message 2':'MSG 2',
-    'message 3':'MSG 3',
+    'Disturbance':'MSG 1',
+    'Cleaning':'MSG 2',
+    'Exchange':'MSG 3',
+    'Maintenance':'MSG 4',
+    'Measurement':'MSG 5',
     'other':'Other'
 }
 const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShouldStopCountdown,setFetchResult,setServiceLog,setCount,setIsIgnored,reqResData}) => {
