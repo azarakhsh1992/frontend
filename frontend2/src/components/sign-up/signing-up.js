@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {auth, SignUp} from "../../services/user-services";
 import {useAuth} from "../../hooks/useAuth";
 import {useNavigate} from "react-router-dom";
+import {enqueueSnackbar} from "notistack";
 
 function Copyright(props) {
     return (
@@ -57,6 +58,12 @@ export default function SigningUp() {
                 const datas = await auth({username, password});
                 setAuth(datas);
                 history('/sectionmain');
+            }else{
+                // enqueueSnackbar(regData["username"], {variant:'error',style:{borderRadius:'17px',},anchorOrigin:{
+                //         vertical:"top",
+                //         horizontal:"right",
+                //     }});
+                console.log(regData);
             }
         }else{
             console.log('password not match')
