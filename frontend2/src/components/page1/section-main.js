@@ -94,7 +94,7 @@ const SectionMain = () => {
                                             </Box>
                                             :
                                             <Box>
-                                                {/*<QrReaderd onSetQr={SetQrScanned}/>*/}
+                                                {/* <QrReaderd onSetQr={SetQrScanned}/> */}
                                                 // begin using textfield instead qrcode reader
                                                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
                                                     <TextField
