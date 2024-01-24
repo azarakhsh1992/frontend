@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 // Multi class import
 import clsx from "clsx";
 // Style
-import {useStyles} from "./style/section-door-style";
+import {useStyles} from "./style/section-sensor-style";
 import PopupDataDoor from "./popup-data-door";
 
 
@@ -20,17 +20,23 @@ export const SectionSensor = ({SensorDatas,historysensor}) => {
         'Faulted':"yellow",
         'No Data':"gray"
     }
+    console.log(SensorDatas["AC 1"]);
     const classes = useStyles();
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                <Box className={clsx(classes.door_box)}>
-                    <PopupDataDoor txt={"History"} HistoryData={(historysensor && historysensor)}/>
-                    {SensorDatas["Current"] && <Typography className={clsx(classes.door_status_typo)}
-                                 sx={{backgroundColor: `${SensorColor[DoorDatas["Current"]]} !important`}}>
-                        {SensorDatas["Current"]}
-                    </Typography>}
-                </Box>
+                    {/*<PopupDataDoor txt={"History"} HistoryData={(historysensor && historysensor)}/>*/}
+                    {/*{SensorDatas["AC 1"] && <Typography className={clsx(classes.door_status_typo)}>*/}
+                    {/*    {SensorDatas["AC 1"]}*/}
+                    {/*</Typography>}*/}
+                    <Box className={clsx(classes.strom_box)}>
+                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Time</Typography>
+                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >{SensorDatas["Time"]}</Typography>
+                    </Box>
+                    <Box className={clsx(classes.energie_box)}>
+                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Triggered</Typography>
+                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{SensorDatas["Triggered"]}</Typography>
+                    </Box>
             </Box>
         </Container>
     );

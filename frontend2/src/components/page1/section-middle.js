@@ -19,11 +19,13 @@ import {SectionEnergy} from "./section-middle-components/section-energy";
 import {useEffect} from "react";
 import {useHistoryDoor, useHistoryEnergy, useHistoryTemp,useHistorySensor} from "../../fetches/monitoring-fetches";
 import {theme} from "../../theme/Theme";
+import {SectionSensor} from "./section-middle-components/section-sensor";
 
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
     const DoorTab = ["Edge A Front","Edge A Rear","Edge B Front","Edge B Rear","Cooling Front",
                                 "Cooling Rear","Network","Energy"];
+    const CoolingSensor = ["AC 1","AC 2"]
     // Style Class
     const classes = useStyles();
     // Tabs Control
@@ -142,36 +144,37 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                     {/*<SectionEnergy EnergyData={MonitoringDatas.Energy}/>*/}
                 </Box>
             	{/*ENERGY END*/}
-              {/*  /!*Sensor START*!/*/}
-              {/*  <Box className={clsx(classes.door_box)}>*/}
-              {/*      <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Sensor Status</Typography>*/}
-              {/*      <TabContext value={value_sensor}>*/}
-              {/*          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>*/}
-              {/*              <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_sensor} aria-label="lab API tabs example">*/}
-              {/*                  {DoorTab.map((value, index) => {*/}
-              {/*                      if(MonitoringDatas.Sensor_Sensors[value]){*/}
-              {/*                          return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);*/}
-              {/*                      }*/}
-              {/*                      else {*/}
-              {/*                          return null;*/}
-              {/*                      }*/}
-              {/*                  })}*/}
-              {/*              </TabList>*/}
-              {/*          </Box>*/}
-              {/*          {DoorTab.map((value, index) => {*/}
-              {/*              if(MonitoringDatas.Sensor_Sensors[value]){*/}
-              {/*                  return (*/}
-              {/*                    <TabPanel value={`${index+1}`}>*/}
-              {/*                        <SectionDoor DoorDatas={MonitoringDatas.Sensor_Sensors[value]} historydoor={historySensor && historySensor[value]}/>*/}
-              {/*                    </TabPanel>);*/}
-              {/*              }*/}
-              {/*              else {*/}
-              {/*                  return null;*/}
-              {/*              }*/}
-              {/*          })}*/}
-              {/*      </TabContext>*/}
-              {/*  </Box>*/}
-              {/*  /!*Sensor END*!/*/}
+                {/*Sensor START*/}
+                <Box className={clsx(classes.cooling_sensor_box)}>
+                    <Typography textAlign={'center'} fontSize={"medium"} fontWeight={"bolder"}>Sensor Status</Typography>
+                    <TabContext value={value_sensor}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_sensor} aria-label="lab API tabs example">
+                                {CoolingSensor.map((value, index) => {
+                                    console.log(value);
+                                    if(MonitoringDatas && MonitoringDatas.Cooling_sensors[value]){
+                                        return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);
+                                    }
+                                    else {
+                                        return null;
+                                    }
+                                })}
+                            </TabList>
+                        </Box>
+                        {CoolingSensor.map((value, index) => {
+                            if(MonitoringDatas && MonitoringDatas.Cooling_sensors[value]){
+                                return (
+                                  <TabPanel value={`${index+1}`}>
+                                      <SectionSensor SensorDatas={MonitoringDatas.Cooling_sensors[value]} historysensor={historySensor && historySensor[value]}/>
+                                  </TabPanel>);
+                            }
+                            else {
+                                return null;
+                            }
+                        })}
+                    </TabContext>
+                </Box>
+                {/*Sensor END*/}
             </Box>
         </Container>
     );
