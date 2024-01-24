@@ -49,7 +49,7 @@ export function GetHistoryDoor(qr){
 }
 
 export function GetHistorySensor(qr){
-    return fetch(`https://${API}/web/monitoring/history_doorsensor/`,{
+    return fetch(`https://${API}/web/monitoring/history_cooling_sensor/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import CircularProgress from '@mui/material/CircularProgress';
 
-export default function AutoHeightGrid({MyData}) {
+export default function AutoHeightGrid({MyData,object}) {
     const [nbRows, setNbRows] = React.useState(3);
     const removeRow = () => setNbRows((x) => Math.max(0, x - 1));
     const addRow = () => setNbRows((x) => Math.min(100, x + 1));
@@ -16,7 +16,11 @@ export default function AutoHeightGrid({MyData}) {
         rowLength: 100,
         maxColumns: 6,
     });
-    const Dcol= [{field:'status', width: 'auto !important' },{field:'from', width: 'auto !important' },{field:'to', width: 'auto !important' }];
+    const Dcol = {
+        "door":[{field:'status', width: 'auto !important' },{field:'from', width: 'auto !important' },{field:'to', width: 'auto !important' }],
+        "cooling":[{field:'Triggered', width: 'auto !important' },{field:'Time', width: 'auto !important' }]
+    }
+    // const Dcol= [{field:'status', width: 'auto !important' },{field:'from', width: 'auto !important' },{field:'to', width: 'auto !important' }];
     const TransformData = ()=>{
         const transformedObj =Object.keys(MyData).map((value, index) => {
             if(MyData[value]['status']!== "-"){
@@ -56,7 +60,7 @@ export default function AutoHeightGrid({MyData}) {
             {/*          pageSizeOptions={[5, 10, 25]}/>*/}
             {MyData ? <DataGrid
                 rows={MyData && filteredArr}
-                columns={Dcol}
+                columns={Dcol[object]}
                 initialState={{
                     pagination: {paginationModel: {pageSize: 5}},
                 }}

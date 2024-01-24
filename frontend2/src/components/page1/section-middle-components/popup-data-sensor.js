@@ -66,7 +66,7 @@ const PopupDataSensor = ({txt,HistoryData}) => {
                             </Button>
                         </Box>
                         <Box className={clsx(classes.modal_box_bot)}>
-                            <AutoHeightGrid MyData={HistoryData}/>
+                            <AutoHeightGrid MyData={HistoryData} object={"cooling"}/>
                         </Box>
                     </Box>
                 </Fade>
@@ -75,4 +75,4 @@ const PopupDataSensor = ({txt,HistoryData}) => {
     );
 }
 
-export default PopupDataDoor;
+export default PopupDataSensor;
