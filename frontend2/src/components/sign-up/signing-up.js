@@ -66,7 +66,10 @@ export default function SigningUp() {
                 console.log(regData);
             }
         }else{
-            console.log('password not match')
+            enqueueSnackbar("Password Doesn't Match", {variant:'error',style:{borderRadius:'17px',},anchorOrigin:{
+                    vertical:"top",
+                    horizontal:"right",
+                }});
         }
     }
 

@@ -10,7 +10,7 @@ export function SignUp(userData){
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData)
-    }).then(statusUserSignup).catch(e => {console.log(e);
+    }).then((res)=>statusUser(res)).catch(e => {console.log(e);
     })
 }
 
@@ -22,7 +22,7 @@ export function auth(credentials){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
-    }).then(statusUserSignin).catch(e => {console.log(e);
+    }).then((res)=>statusUser(res)).catch(e => {console.log(e);
     })
 }
 
