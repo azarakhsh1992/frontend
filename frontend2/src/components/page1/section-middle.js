@@ -25,7 +25,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
     const DoorTab = ["Edge A Front","Edge A Rear","Edge B Front","Edge B Rear","Cooling Front",
                                 "Cooling Rear","Network","Energy"];
-    const CoolingSensor = ["AC 1","AC 2"]
+    const CoolingSensor = ["Cooling Sensor 1","Cooling Sensor 2"]
     // Style Class
     const classes = useStyles();
     // Tabs Control

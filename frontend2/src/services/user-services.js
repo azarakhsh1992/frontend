@@ -1,5 +1,5 @@
 import React from 'react';
-import {status} from '../utils';
+import {status, statusUser, statusUserSignin, statusUserSignup} from '../utils';
 
 const API = process.env.REACT_APP_API;
 
@@ -10,7 +10,7 @@ export function SignUp(userData){
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData)
-    }).then(status).catch(e => {console.log(e);
+    }).then(statusUserSignup).catch(e => {console.log(e);
     })
 }
 
@@ -22,7 +22,7 @@ export function auth(credentials){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
-    }).then(status).catch(e => {console.log(e);
+    }).then(statusUserSignin).catch(e => {console.log(e);
     })
 }
 

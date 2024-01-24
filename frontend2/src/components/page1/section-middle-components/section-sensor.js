@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-sensor-style";
-import PopupDataDoor from "./popup-data-door";
+import PopupDataSensor from "./popup-data-sensor";
 
 
 export const SectionSensor = ({SensorDatas,historysensor}) => {
@@ -20,23 +20,22 @@ export const SectionSensor = ({SensorDatas,historysensor}) => {
         'Faulted':"yellow",
         'No Data':"gray"
     }
-    console.log(SensorDatas["AC 1"]);
     const classes = useStyles();
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>
-                    {/*<PopupDataDoor txt={"History"} HistoryData={(historysensor && historysensor)}/>*/}
                     {/*{SensorDatas["AC 1"] && <Typography className={clsx(classes.door_status_typo)}>*/}
-                    {/*    {SensorDatas["AC 1"]}*/}
-                    {/*</Typography>}*/}
-                    <Box className={clsx(classes.strom_box)}>
-                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Time</Typography>
-                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >{SensorDatas["Time"]}</Typography>
-                    </Box>
-                    <Box className={clsx(classes.energie_box)}>
-                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Triggered</Typography>
-                        <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{SensorDatas["Triggered"]}</Typography>
-                    </Box>
+              {/*    {SensorDatas["AC 1"]}*/}
+              {/*</Typography>}*/}
+              {/*<Box className={clsx(classes.strom_box)}>*/}
+              {/*    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom)} >Time</Typography>*/}
+              {/*    <Typography className={clsx(classes.energy_typo,classes.energy_typo_strom_val)} >{SensorDatas["Time"]}</Typography>*/}
+              {/*</Box>*/}
+              <Box className={clsx(classes.energie_box)}>
+                <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie)} >Triggered</Typography>
+                <Typography className={clsx(classes.energy_typo,classes.energy_typo_energie_val)} >{SensorDatas["Triggered"]}</Typography>
+              </Box>
+              <PopupDataSensor txt={"History"} HistoryData={(historysensor && historysensor)}/>
             </Box>
         </Container>
     );

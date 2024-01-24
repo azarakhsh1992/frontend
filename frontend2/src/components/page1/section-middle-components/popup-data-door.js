@@ -38,6 +38,7 @@ const PopupDataDoor = ({txt,HistoryData}) => {
         setValue_tmp(newValue);
     };
 
+    console.log(HistoryData);
 
     return (
         <div>
@@ -66,7 +67,7 @@ const PopupDataDoor = ({txt,HistoryData}) => {
                             </Button>
                         </Box>
                         <Box className={clsx(classes.modal_box_bot)}>
-                            <AutoHeightGrid MyData={HistoryData}/>
+                            <AutoHeightGrid MyData={HistoryData} object={"door"}/>
                         </Box>
                     </Box>
                 </Fade>
