@@ -62,7 +62,7 @@ const QrReaderd = ({onSetQr}) => {
                     onResult={(res) => handleScan(res)}
                     constraints={{
                         facingMode: 'environment',
-                        frameRate: 5,
+                        frameRate: 25,
                     }}
                     style={{ width: '100%' }}
                 />
