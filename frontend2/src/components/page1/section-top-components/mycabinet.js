@@ -9,7 +9,7 @@ import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {GetMyCabinet} from "../../../services/cabinet-services";
 import {useAuth} from "../../../hooks/useAuth";
-import ColumnGroupingTable from "./section-mycabinet-components/mycabonet-popup";
+import ColumnGroupingTable from "./section-mycabinet-components/mycabinet-popup";
 
 const style = {
     position: 'absolute',

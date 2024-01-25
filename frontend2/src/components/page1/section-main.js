@@ -120,7 +120,7 @@ const SectionMain = () => {
                                     </>
                                     :
                                     <>
-                                        <Typography variant={"h3"}>Factory Edge Cabinet Monitoring Website</Typography>
+                                        <Typography variant={"h3"}>Factory Edge Cabinet Monitoring</Typography>
                                     </>
                             }
 

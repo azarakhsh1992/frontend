@@ -79,7 +79,7 @@ const SectionRequestAccessed = ({reqData,SetRequestchecked,setactiveReq,setShoul
         }
         const datas = await ServiceLog({'request':ReqId,"service":ServiceMsg,"user_id":UserId});
         if(datas){
-            enqueueSnackbar("Request Service Log Submitted", {variant:'success',style:{borderRadius:'17px',},anchorOrigin:{
+            enqueueSnackbar("Service Log submitted successfully", {variant:'success',style:{borderRadius:'17px',},anchorOrigin:{
                     vertical:"top",
                     horizontal:"right",
                 }});

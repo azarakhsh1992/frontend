@@ -9,19 +9,25 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from "@mui/material/Typography";
 
-const MyCabinetArray = ["Cabinet","Door","Hall","Rack","From","To","Status"];
+const MyCabinetArray = ["Hall","Cabinet","Rack","Door","Status","From","To"];
 const columns = [
-    { id: 'Cabinet', label: 'Cabinet', minWidth: 'auto' },
-    { id: 'Door', label: 'Door', minWidth: 'auto' },
     {
         id: 'Hall',
         label: 'Hall',
         minWidth: 'auto',
         align: 'center',
     },
+    { id: 'Cabinet', label: 'Cabinet', minWidth: 'auto' },
     {
         id: 'Rack',
         label: 'Rack',
+        minWidth: 'auto',
+        align: 'center',
+    },
+    { id: 'Door', label: 'Door', minWidth: 'auto' },
+    {
+        id: 'Status',
+        label: 'Status',
         minWidth: 'auto',
         align: 'center',
     },
@@ -36,13 +42,7 @@ const columns = [
         label: 'To',
         minWidth: 'auto',
         align: 'center',
-    },
-    {
-        id: 'Status',
-        label: 'Status',
-        minWidth: 'auto',
-        align: 'center',
-    },
+    }
 ];
 
 function createData(name, code, population, size) {
@@ -127,7 +127,7 @@ export default function ColumnGroupingTable({MyCabinetData}) {
 
                                                 return (
                                                     <TableCell key={value1} align={'center'}>
-                                                        <Typography>
+                                                        <Typography sx={{ fontWeight: theme => theme.typography.fontWeightBold }}>
                                                             {MyCabinetData[value][value1]}
                                                         </Typography>
                                                     </TableCell>

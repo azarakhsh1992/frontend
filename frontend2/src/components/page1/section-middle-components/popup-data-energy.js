@@ -77,7 +77,7 @@ const PopupDataEnergy = ({txt,HistoryData}) => {
                 <Fade in={open}>
                     <Box className={clsx(classes.modal_box)}>
                         <Box className={clsx(classes.modal_box_top)}>
-                            <Typography id="transition-modal-title" variant="h6" component="h2">
+                            <Typography id="transition-modal-title" variant="h6" component="h2" sx={{ fontWeight: 'bold' }}>
                                 {txt}
                             </Typography>
                             <Button variant={"contained"} className={clsx(classes.btn,classes.btn_modal_close)} onClick={handleClose}>

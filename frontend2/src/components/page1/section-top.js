@@ -49,7 +49,7 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
                     <Box className={clsx(classes.top_box_sectiontop)}>
                         <Box className={clsx(classes.leftbox)}>
                             <Button variant={"contained"} className={clsx(classes.btn)} onClick={(event)=>HandleQrScan(false)}>
-                                <Typography className={clsx(classes.btn_typo)}>Scan New QrCode</Typography>
+                                <Typography className={clsx(classes.btn_typo)}>Scan New Qr Code</Typography>
                             </Button>
 
                             <Mycabinet />
@@ -74,7 +74,7 @@ const SectionTop = ({QrScanned,SetQrScanned,RequestChecked,SetRequestChecked,set
                                 <Typography className={clsx(classes.btn_typo)}>Logout</Typography>
                             </Button>
 
-                            <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Request Access"} defclass={classes}
+                            <RequestDialogSlide SetRequestChecked={SetRequestChecked} Qrstate={QrScanned} title={"Request access"} defclass={classes}
                             	setQr={setQr} AuthD={AuthD} DoorQr={DoorQr} setreqData={setreqData} ScannedDoor={MonitoringData && MonitoringData.scanned_door}/>
                         </Box>
                     </Box>

@@ -122,7 +122,7 @@ const SectionRequest = ({SetRequestchecked,Requestchecked,DoorQr,AuthD, reqData,
                             <>
                                 <Box className={clsx(classes.message_box)}>
                                     <Typography className={clsx(classes.message_typo)}>
-                                        {Requestchecked === "onprogress" ? "u can open the door" : `Access granted \n Please Push the Button `}
+                                        {Requestchecked === "onprogress" ? "You can open the door" : `Access granted \n Please Push the Button `}
                                     </Typography>
                                     {/*<Typography>${count}</Typography>*/}
                                     <Box sx={{ position: 'relative', display: 'inline-flex' }}>

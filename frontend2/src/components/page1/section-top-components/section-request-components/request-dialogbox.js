@@ -58,16 +58,16 @@ export default function RequestDialogSlide({SetRequestChecked,Qrstate,title,defc
                 onClose={(event) => HandleClose(event,"cancel")}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Requesting Access"}</DialogTitle>
+                <DialogTitle>{"Please confirm your request"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Are you sure u want open ,Rack:{ScannedDoor && ScannedDoor.Rack} ,Door:{ScannedDoor && ScannedDoor.Door} ?
+                        Do you want to open the {ScannedDoor && ScannedDoor.Door} door of the {ScannedDoor && ScannedDoor.Rack} Rack ?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(event)=>{HandleClose(event,"cancel")}}>Disagree</Button>
-                    <Button onClick={(event)=>{HandleClose(event,"accept")}}>Agree</Button>
-                    <Button onClick={(event)=>{HandleClose(event,"scan")}}>Scan Qr</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"cancel")}}>Cancel</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"accept")}}>Confirm</Button>
+                    <Button onClick={(event)=>{HandleClose(event,"scan")}}>Scan new QR Code</Button>
                 </DialogActions>
             </Dialog>
         </React.Fragment>
