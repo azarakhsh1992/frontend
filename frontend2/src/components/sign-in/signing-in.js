@@ -52,9 +52,6 @@ export default function SignIn() {
             setAuth(datas);
             history('/sectionmain');
         }
-        else {
-            console.log('error');
-        }
     };
 
     const hanldeRegister = () =>{
