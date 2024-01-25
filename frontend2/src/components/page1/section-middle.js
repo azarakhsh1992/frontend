@@ -24,7 +24,7 @@ import {SectionSensor} from "./section-middle-components/section-sensor";
 const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
     // Door ArrayList
     const DoorTab = ["Edge A Front","Edge A Rear","Edge B Front","Edge B Rear","Cooling Front",
-                                "Cooling Rear","Network","Energy"];
+                                "Cooling Rear","Network Rack","Energy Rack"];
     const CoolingSensor = ["Cooling Sensor 1","Cooling Sensor 2"]
     // Style Class
     const classes = useStyles();

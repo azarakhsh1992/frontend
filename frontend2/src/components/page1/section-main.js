@@ -94,8 +94,8 @@ const SectionMain = () => {
                                             </Box>
                                             :
                                             <Box>
-                                                {/* <QrReaderd onSetQr={SetQrScanned}/> */}
-                                                // begin using textfield instead qrcode reader
+                                                <QrReaderd onSetQr={SetQrScanned}/>
+                                                {/* // begin using textfield instead qrcode reader
                                                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
                                                     <TextField
                                                         margin="normal"
@@ -115,12 +115,12 @@ const SectionMain = () => {
                                                         Send QR
                                                     </Button>
                                                 </Box>
-                                                // end using textfield instead qrcode reader
+                                                // end using textfield instead qrcode reader */}
                                             </Box>}
                                     </>
                                     :
                                     <>
-                                        <Typography variant={"h3"}>Factory Edge Cabinet Monitoring</Typography>
+                                        <Typography variant="h3" style={{ color: 'rgb(0, 30, 80)' }}>Factory Edge Cabinet Monitoring</Typography>
                                     </>
                             }
 
