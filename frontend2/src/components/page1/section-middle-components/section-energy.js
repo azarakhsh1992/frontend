@@ -3,12 +3,10 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 // Multi class import
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-energy-style";
-import {useHistoryEnergy} from "../../../fetches/monitoring-fetches";
 import PopupDataEnergy from "./popup-data-energy";
 
 

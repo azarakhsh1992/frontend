@@ -1,5 +1,6 @@
+/* eslint-disable no-unreachable */
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { DataGrid } from '@mui/x-data-grid';
@@ -7,6 +8,7 @@ import { useDemoData } from '@mui/x-data-grid-generator';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function AutoHeightGrid({MyData,object}) {
+    // eslint-disable-next-line no-unused-vars
     const [nbRows, setNbRows] = React.useState(3);
     const removeRow = () => setNbRows((x) => Math.max(0, x - 1));
     const addRow = () => setNbRows((x) => Math.min(100, x + 1));

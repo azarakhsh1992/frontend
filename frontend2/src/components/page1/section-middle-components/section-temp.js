@@ -3,24 +3,16 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 // Multi class import
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-temp-style";
 import PopupDataTemp from "./popup-data-temp";
-import {useEffect} from "react";
-import {GetData} from "../../../services/monitoring-services";
-import {useHistoryTemp} from "../../../fetches/monitoring-fetches";
 
 
 export const SectionTemp = ({TemperatureData,HistoryTemp}) => {
-
     const classes = useStyles();
-
     const sectionTempArray = ["Top section","Middle section","Bottom section","Main section"];
-
-
     return (
         <Container className={clsx(classes.maincontainer)}>
             <Box className={clsx(classes.mainbox)}>

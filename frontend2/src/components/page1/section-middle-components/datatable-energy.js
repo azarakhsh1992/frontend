@@ -37,38 +37,39 @@ function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
 
+// eslint-disable-next-line no-unused-vars
 const rows = [
     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
 ];
 
 export default function DataTableEnergy({Data}) {
     return (
-      <Box display={'flex'} flexDirection={'column'}>
-          {Data !== 'not_Defined' && arraySection.map((value, index) =>{
-              return (
+    <Box display={'flex'} flexDirection={'column'}>
+        {Data !== 'not_Defined' && arraySection.map((value, index) =>{
+            return (
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 60, maxHeight:30}} aria-label="customized table" size={'small'}>
                         <TableHead>
                             <TableRow>
                                 {Object.keys(Data[value]).map((value1, index1) =>{
-                                      return (
+                                    return (
                                         <StyledTableCell sx={{minWidth:60}}><Typography textAlign={'center'}>{value1}</Typography></StyledTableCell>
-                                      );
-                                  }
+                                    );
+                                }
                                 )}
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <StyledTableRow key={index}>
                                 {Object.keys(Data[value]).map((value1, index1) =>(
-                                  <StyledTableCell>{Data[value][value1]}</StyledTableCell>
+                                <StyledTableCell>{Data[value][value1]}</StyledTableCell>
                                 ))}
                             </StyledTableRow>
                         </TableBody>
                     </Table>
                 </TableContainer>
-              );
-          })}
-      </Box>
+            );
+        })}
+    </Box>
     );
 }

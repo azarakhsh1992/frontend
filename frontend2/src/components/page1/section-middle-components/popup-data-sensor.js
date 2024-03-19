@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from "react";
 // Material ui
 import Backdrop from '@mui/material/Backdrop';
@@ -11,12 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import clsx from "clsx";
 //style
 import {useStyles} from "./style/popup-data-style";
-import TabList from "@mui/lab/TabList";
-import Tab from "@mui/material/Tab";
-import TabPanel from "@mui/lab/TabPanel";
-import {SectionTemp} from "./section-temp";
-import TabContext from "@mui/lab/TabContext";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import AutoHeightGrid from "./datagrid";
 
 

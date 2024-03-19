@@ -89,7 +89,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList variant={"scrollable"} scrollButtons={"auto"} onChange={handleChange_door} aria-label="lab API tabs example">
                                 {DoorTab.map((value, index) => {
-                                    if(MonitoringDatas.Door_Sensors[value]){
+                                    if(MonitoringDatas.Door_Status[value]){
                                         return (<Tab label={value} value={`${index+1}`} sx={{fontSize:'10px !important',fontWeight:'bold !important'}}/>);
                                     }
                                     else {
@@ -99,10 +99,10 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             </TabList>
                         </Box>
                         {DoorTab.map((value, index) => {
-                            if(MonitoringDatas.Door_Sensors[value]){
+                            if(MonitoringDatas.Door_Status[value]){
                                 return (
                                     <TabPanel value={`${index+1}`}>
-                                        <SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]} historydoor={historyDoor && historyDoor[value]}/>
+                                        <SectionDoor DoorDatas={MonitoringDatas.Door_Status[value]} historydoor={historyDoor && historyDoor[value]}/>
                                     </TabPanel>);
                             }
                             else {
@@ -132,7 +132,7 @@ const SectionMiddle = ({MonitoringDatas,DoorQr}) => {
                             if(MonitoringDatas.Energy[value]){
                                 return (
                                     <TabPanel value={`${index+1}`}>
-                                        {/*<SectionDoor DoorDatas={MonitoringDatas.Door_Sensors[value]}/>*/}
+                                        {/*<SectionDoor DoorDatas={MonitoringDatas.Door_Status[value]}/>*/}
                                         <SectionEnergy EnergyData={MonitoringDatas.Energy[value]} DoorQr={DoorQr} historyEnergy={historyEnergy && historyEnergy[value]}/>
                                     </TabPanel>);
                             }

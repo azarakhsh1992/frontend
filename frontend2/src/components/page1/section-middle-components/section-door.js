@@ -3,13 +3,11 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 // Multi class import
 import clsx from "clsx";
 // Style
 import {useStyles} from "./style/section-door-style";
 import PopupDataDoor from "./popup-data-door";
-
 
 export const SectionDoor = ({DoorDatas,historydoor}) => {
 
@@ -27,7 +25,7 @@ export const SectionDoor = ({DoorDatas,historydoor}) => {
                 <Box className={clsx(classes.door_box)}>
                     <PopupDataDoor txt={"History"} HistoryData={(historydoor && historydoor)}/>
                     {DoorDatas["Current"] && <Typography className={clsx(classes.door_status_typo)}
-                                 sx={{backgroundColor: `${DoorColor[DoorDatas["Current"]]} !important`}}>
+                                sx={{backgroundColor: `${DoorColor[DoorDatas["Current"]]} !important`}}>
                         {DoorDatas["Current"]}
                     </Typography>}
                 </Box>

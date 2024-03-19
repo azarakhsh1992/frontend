@@ -38,7 +38,7 @@ export function GetHistoryEnergy(qr){
 }
 
 export function GetHistoryDoor(qr){
-    return fetch(`https://${API}/web/monitoring/history_doorsensor/`,{
+    return fetch(`https://${API}/web/monitoring/history_doorstatus/`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
